@@ -37,8 +37,18 @@
         <h2><?php echo $user->email; ?></h2>
         <p> <a href="/bulletin/logout"> Log Out </a> </p>
         <h2>Add a Class</h2>
-        <?php if (isset($error)) { echo "<p> {$error} </p>"; } ?>
-        <form action="/bulletin/chat" method="post">
+        <?php 
+          if (isset($error)) { 
+            echo "<p> {$error} </p>"; 
+          } 
+
+          if (isset($_GET["0"])) {
+            echo "<form action='/bulletin/chat/{$_GET["0"]}' method='post'>"; 
+          } else {
+            echo "<form action='/bulletin/chat' method='post'>"; 
+          }
+        ?>
+        
           Class Name: <input type="text" name="class"><br>
           <input type="submit" value="Submit">
         </form>
@@ -49,7 +59,9 @@
               echo "<p> <a href='/bulletin/chat/" . $course["id"] . "'>" . $course["name"] . "</a> </p>"; 
             }
 
-            echo "<h2>{$enrolled_courses[$_GET['0']]['name']}</h2>"; 
+            if (isset($_GET['0'])) {
+              echo "<h2>{$enrolled_courses[$_GET['0']]['name']}</h2>"; 
+            }
 
           }
         ?>
@@ -60,14 +72,22 @@
             foreach ($messages as $message) {
               echo "<p> <strong>{$message['owner_name']}:</strong> {$message['content']} </p>";
             }
+          } else {
+            echo "<p> <em> No messages yet... Get the convo started!</em> </p>";
           }
         ?>
 
-        <?php echo "<form action='/bulletin/chat/{$_GET["0"]}' method='post'>"?>
+        <?php 
+          if (isset($_GET["0"])) {
+            echo "<form action='/bulletin/chat/{$_GET["0"]}' method='post'>"; 
+          }
+        ?>
+
+        <?php if (isset($_GET["0"])): ?>
           New Message: <input type="text" name="message"><br>
           <input type="submit" value="Submit">
-        </form>
-
+          </form>
+        <?php endif; ?>
 
     </div>
   </div>
