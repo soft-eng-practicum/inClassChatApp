@@ -46,7 +46,6 @@ class Message extends Model {
 	public $likes;
 	public $createdAt;
 	public $owner_id;
-	public $school_id;
 	public $course_id;
 }
 

@@ -125,6 +125,34 @@ class Model {
 	}
 
 	// returns an array
+	public function getMultiple($key, $values) {
+		$db = new SQLite3('database.db');
+		$table_name = get_class($this);
+
+		$query_array = array();  
+
+		foreach ($values as $value) {
+			array_push($query_array,  "\"" . $key . "\" = '" . $value . "'"); 
+		}
+
+		$query = "SELECT * FROM \"" . $table_name . "\" WHERE " . implode(" OR ", $query_array);
+
+		$result = $db->query($query);
+		$return = array();
+
+		while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
+		    $db_row = array(); 
+		    foreach ($row as $col => $value) {
+		    	$db_row[$col] = $value; 
+		    }
+		    $return[$db_row[$key]] = $db_row;
+
+		}
+
+		return $return; 
+	}
+
+	// returns an array
 	public function getAll() {
 		$db = new SQLite3('database.db');
 		$table_name = get_class($this);

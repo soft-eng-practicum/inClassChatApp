@@ -34,8 +34,9 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <div class="container">
     <div class="row">
+        <h2><?php echo $user->email; ?></h2>
         <p> <a href="/bulletin/logout"> Log Out </a> </p>
-        <h4>Add a Class</h4>
+        <h2>Add a Class</h2>
         <?php if (isset($error)) { echo "<p> {$error} </p>"; } ?>
         <form action="/bulletin/chat" method="post">
           Class Name: <input type="text" name="class"><br>
@@ -43,10 +44,26 @@
         </form>
 
         <?php
-          foreach ($course_names as $name) {
-            echo "<p> <a href='/bulletin/chat/" . $name . "'>" . $name . "</a> </p>"; 
+          foreach ($enrolled_courses as $course) {
+            echo "<p> <a href='/bulletin/chat/" . $course["id"] . "'>" . $course["name"] . "</a> </p>"; 
           }
         ?>
+
+        <h2><?php echo $enrolled_courses[$_GET["0"]]["name"] ?></h2>
+
+        <?php
+          if (isset($messages) and sizeof($messages) > 0) {
+            foreach ($messages as $message) {
+              echo "<p> <strong>{$message['owner_name']}:</strong> {$message['content']} </p>";
+            }
+          }
+        ?>
+
+        <?php echo "<form action='/bulletin/chat/{$_GET["0"]}' method='post'>"?>
+          New Message: <input type="text" name="message"><br>
+          <input type="submit" value="Submit">
+        </form>
+
 
     </div>
   </div>

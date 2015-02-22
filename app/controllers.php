@@ -94,13 +94,61 @@ function chat() {
 			}
 		}
 
+		// class Message extends Model {
+		// 	public $content;
+		// 	public $likes;
+		// 	public $createdAt;
+		// 	public $owner_id;
+		// 	public $school_id;
+		// 	public $course_id;
+		// }
+
+
+
+		if (isset($_GET["0"])) {
+
+			// check if user is enrolled in that class
+			$enroll = new Enrollment(); 
+			$enroll_results = $enroll->match(array("user_id" => $user->id, "course_id" => $_GET["0"])); 
+			if (sizeof($enroll_results) == 0) {
+				$error = "You aren't enrolled in that class!"; 
+			} else {
+				$message = new Message();
+
+				if (isset($_POST["message"]) && $_POST["message"] != " " && $_POST["message"] != "") {
+					$message->content = $_POST["message"]; 
+					$message->likes = 0; 
+					$message->createdAt = time();
+					$message->owner_id = $user->id; 
+					$message->course_id = $_GET["0"];
+					$message->save();
+				}
+
+				$messages = $message->search("course_id", $_GET["0"]);
+				if ($messages) {
+					$owner_ids = []; 
+					$users = new User(); 
+					foreach ($messages as $message) {
+						array_push($owner_ids, $message["owner_id"]); 
+					}
+					$owners = $users->getMultiple("id", $owner_ids); 
+					for ($i=0; $i < sizeof($messages); $i++) { 
+						$messages[$i]["owner_name"] = $owners[$messages[$i]["owner_id"]]["name"];
+					}
+				}
+			}
+		}
+
 		// set $classes == to enrolled classes
 		$enroll = new Enrollment(); 
 		$results = $enroll->search("user_id", $user->id); 
-		$course_names = array(); 
+		$course_ids = array(); 
 		foreach ($results as $result) {
-			array_push($course_names, $result["course_id"]);
+			array_push($course_ids, $result["course_id"]);
 		}
+
+		$course = new Course(); 
+		$enrolled_courses = $course->getMultiple("id", $course_ids ); 
 
 
 		include("views/chat.php"); 
