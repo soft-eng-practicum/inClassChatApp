@@ -44,12 +44,16 @@
         </form>
 
         <?php
-          foreach ($enrolled_courses as $course) {
-            echo "<p> <a href='/bulletin/chat/" . $course["id"] . "'>" . $course["name"] . "</a> </p>"; 
+          if (sizeof($enrolled_courses) > 0) {
+            foreach ($enrolled_courses as $course) {
+              echo "<p> <a href='/bulletin/chat/" . $course["id"] . "'>" . $course["name"] . "</a> </p>"; 
+            }
+
+            echo "<h2>{$enrolled_courses[$_GET['0']]['name']}</h2>"; 
+
           }
         ?>
 
-        <h2><?php echo $enrolled_courses[$_GET["0"]]["name"] ?></h2>
 
         <?php
           if (isset($messages) and sizeof($messages) > 0) {

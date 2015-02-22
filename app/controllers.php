@@ -142,14 +142,15 @@ function chat() {
 		// set $classes == to enrolled classes
 		$enroll = new Enrollment(); 
 		$results = $enroll->search("user_id", $user->id); 
-		$course_ids = array(); 
-		foreach ($results as $result) {
-			array_push($course_ids, $result["course_id"]);
+		if ($results) {
+			$course_ids = array(); 
+			foreach ($results as $result) {
+				array_push($course_ids, $result["course_id"]);
+			}
+
+			$course = new Course(); 
+			$enrolled_courses = $course->getMultiple("id", $course_ids ); 
 		}
-
-		$course = new Course(); 
-		$enrolled_courses = $course->getMultiple("id", $course_ids ); 
-
 
 		include("views/chat.php"); 
 	} else {
