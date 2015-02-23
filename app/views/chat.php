@@ -21,7 +21,8 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="stylesheet" href="/bulletin/app/views/static/normalize.css">
   <link rel="stylesheet" href="/bulletin/app/views/static/skeleton.css">
-  
+  <script type="text/javascript"
+    src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
   <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="icon" type="image/png" href="images/favicon.png">
@@ -81,20 +82,22 @@
       ?>
     </div>
     
-    <div class="chat">
-      <?php
-        if (isset($_GET['0'])) {
-          if (isset($messages) and sizeof($messages) > 0) {
-            foreach ($messages as $message) {
-              echo "<p> <strong>{$message['owner_name']}:</strong> {$message['content']}</p>";
-              // <em> - {$message['createdAt']} </em> 
+    <div class="chat" >
+      <div id="messages">
+        <?php
+          if (isset($_GET['0'])) {
+            if (isset($messages) and sizeof($messages) > 0) {
+              foreach ($messages as $message) {
+                echo "<p> <strong>{$message['owner_name']}:</strong> {$message['content']}</p>";
+                // <em> - {$message['createdAt']} </em> 
+              }
+            } else {
+              echo "<p> <em> No messages yet... Get the convo started!</em> </p>";
             }
-          } else {
-            echo "<p> <em> No messages yet... Get the convo started!</em> </p>";
-          }
 
-        }
-      ?>
+          }
+        ?>
+      </div>
     </div>
 
     <div class="send-message">

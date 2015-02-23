@@ -380,6 +380,7 @@ li {
   margin-bottom: 1rem; }
 
 ul li:before {
+    /* color: #1EAEDB; */
     color: gray;
     content: '# ';
     font-size: 1.2em;

@@ -7,3 +7,9 @@ window.onload =toBottom;
 function toBottom() { 
 	window.scrollTo(0, document.body.scrollHeight); 
 } 
+
+setInterval( "doSomething()", 1000 );
+
+function doSomething( ) {
+  $('#messages').load(document.URL +  ' #messages');
+}
