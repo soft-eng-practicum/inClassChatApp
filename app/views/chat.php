@@ -20,8 +20,8 @@
   <!-- CSS
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="stylesheet" href="/bulletin/app/views/static/normalize.css">
-  <link rel="stylesheet" href="/bulletin/app/views/static/skelaton.css">
-
+  <link rel="stylesheet" href="/bulletin/app/views/static/skeleton.css">
+  
   <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="icon" type="image/png" href="images/favicon.png">
@@ -32,67 +32,94 @@
 
   <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <div class="container">
-    <div class="row">
-        <h2><?php echo $user->email; ?></h2>
-        <p> <a href="/bulletin/logout"> Log Out </a> </p>
-        <h2>Add a Class</h2>
-        <?php 
-          if (isset($error)) { 
-            echo "<p> {$error} </p>"; 
-          } 
 
-          if (isset($_GET["0"])) {
-            echo "<form action='/bulletin/chat/{$_GET["0"]}' method='post'>"; 
+  <div class="sidebar-classes">
+    <p class="u-upper-title" style="width:100%; text-align:center;">YOUR CLASS CHATS</p>
+    <?php
+      if (sizeof($enrolled_courses) > 0) {
+        echo "<ul>"; 
+        foreach ($enrolled_courses as $course) {
+          if (isset($_GET["0"]) && $course["id"] == $_GET["0"]) {
+            echo "<li class = 'selected' style='margin-left:20px;'> <strong> <a href='/bulletin/chat/" . $course["id"] . "'>" . $course["name"] . "</a> </strong> </li>"; 
           } else {
-            echo "<form action='/bulletin/chat' method='post'>"; 
+            echo "<li> <a href='/bulletin/chat/" . $course["id"] . "'>" . $course["name"] . "</a> </li>";
           }
-        ?>
-        
-          Class Name: <input type="text" name="class"><br>
-          <input type="submit" value="Submit">
-        </form>
+        }
+        echo "</ul>"; 
+        if (isset($error)) { 
+          echo "<p> {$error} </p>"; 
+        } 
+      }
+    ?>
+  </div> 
 
-        <?php
-          if (sizeof($enrolled_courses) > 0) {
-            foreach ($enrolled_courses as $course) {
-              echo "<p> <a href='/bulletin/chat/" . $course["id"] . "'>" . $course["name"] . "</a> </p>"; 
-            }
+  <div class="sidebar-bottom">
 
-            if (isset($_GET['0'])) {
-              echo "<h2>{$enrolled_courses[$_GET['0']]['name']}</h2>"; 
-            }
+    <?php 
 
-          }
-        ?>
+      if (isset($_GET["0"])) {
+        echo "<form style='margin-top:45px;' action='/bulletin/chat/{$_GET["0"]}' method='post'>"; 
+      } else {
+        echo "<form action='/bulletin/chat' method='post'>"; 
+      }
+    ?>
+    
+      <input type="text" name="class" style="width:100%;"><br>
+      <input type="submit" value="add class" class="button" style="width:100%;">
+      <a class="button button-primary" href="/bulletin/logout" style="width:100%;"> Log Out</a>
+    </form>
 
+  </div>
 
-        <?php
+  <div class="content">
+
+    <div class="navbar">
+      <?php
+        if (isset($_GET['0'])) {
+          echo "<p style='margin-top:30px;' class='u-upper-title'>{$enrolled_courses[$_GET['0']]['name']}</p>"; 
+        }
+      ?>
+    </div>
+    
+    <div class="chat">
+      <?php
+        if (isset($_GET['0'])) {
           if (isset($messages) and sizeof($messages) > 0) {
             foreach ($messages as $message) {
-              echo "<p> <strong>{$message['owner_name']}:</strong> {$message['content']} </p>";
+              echo "<p> <strong>{$message['owner_name']}:</strong> {$message['content']}</p>";
+              // <em> - {$message['createdAt']} </em> 
             }
           } else {
             echo "<p> <em> No messages yet... Get the convo started!</em> </p>";
           }
-        ?>
 
-        <?php 
-          if (isset($_GET["0"])) {
-            echo "<form action='/bulletin/chat/{$_GET["0"]}' method='post'>"; 
-          }
-        ?>
+        }
+      ?>
+    </div>
 
-        <?php if (isset($_GET["0"])): ?>
-          New Message: <input type="text" name="message"><br>
-          <input type="submit" value="Submit">
-          </form>
-        <?php endif; ?>
+    <div class="send-message">
+
+      <?php 
+        if (isset($_GET["0"])) {
+          echo "<form action='/bulletin/chat/{$_GET["0"]}' method='post'>"; 
+        }
+      ?>
+
+      <?php if (isset($_GET["0"])): ?>
+        <input id="message-textbox" style="width:100%;" type="text" name="message">
+        <input style="display:none;" type="submit" value="Submit">
+        </form>
+      <?php endif; ?>
 
     </div>
   </div>
 
+
+
 <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 </body>
+
+<script src="/bulletin/app/views/static/scripts.js"></script>
+
 </html>
