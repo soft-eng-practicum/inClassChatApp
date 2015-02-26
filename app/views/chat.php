@@ -59,9 +59,9 @@
     <?php 
 
       if (isset($_GET["0"])) {
-        echo "<form style='margin-top:45px;' action='/bulletin/chat/{$_GET["0"]}' method='post'>"; 
+        echo "<form autocomplete='off' style='margin-top:45px;' action='/bulletin/chat/{$_GET["0"]}' method='post'>"; 
       } else {
-        echo "<form action='/bulletin/chat' method='post'>"; 
+        echo "<form autocomplete='off' style='margin-top:45px;' action='/bulletin/chat' method='post'>"; 
       }
     ?>
     
@@ -104,7 +104,7 @@
 
       <?php 
         if (isset($_GET["0"])) {
-          echo "<form action='/bulletin/chat/{$_GET["0"]}' method='post'>"; 
+          echo "<form autocomplete='off' action='/bulletin/chat/{$_GET["0"]}' method='post'>"; 
         }
       ?>
 
