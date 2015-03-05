@@ -12,6 +12,9 @@
 	require 'app/models.php';
 	require 'app/controllers.php';
 
+	 
+
+
 	if (isset($_GET['args']) && $_GET['args'] != "") {
 		$args = explode( '/', $_GET['args']);
 		if (function_exists($args[0]) && "_" != substr($args[0], 0,1)) {
@@ -22,7 +25,15 @@
 					unset($args[sizeof($args)]);
 				}
 			}
-			$_GET = array_values($args);
+			$params = array_values($args);
+
+			$_GET = []; 
+
+			foreach ($params as $value) {
+				$pair = explode("=", $value); 
+				$_GET[$pair[0]] = $pair[1]; 
+			}
+			print_r($_GET);
 			$controller();
 		} else {
 			$notfound_view_controller(); 
