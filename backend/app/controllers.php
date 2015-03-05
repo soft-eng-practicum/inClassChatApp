@@ -10,15 +10,15 @@ function createAccount() {
 
 }
 
-function createCourse() {
+function createCourseInSchool() {
 
 }
 
-function enrollInCourse() {
+function enrollUserInCourse() {
 	
 }
 
-function dropCourse() {
+function dropUserFromCourse() {
 
 }
 

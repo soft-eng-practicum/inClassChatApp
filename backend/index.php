@@ -23,14 +23,11 @@
 				}
 			}
 			$_GET = array_values($args);
-			_everypage();
 			$controller();
 		} else {
-			_everypage();
 			$notfound_view_controller(); 
 		}
 	} else {
-		_everypage();
 		$default_view_controller(); 
 	}
 	exit;
