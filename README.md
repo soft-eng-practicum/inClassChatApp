@@ -4,7 +4,7 @@
 
 Hierarches - (4/5/2015)
 
-The two super classe we would create are:
+The two super classe we would create for the Android and IOS app are:
 
 class Group {
   contains a title and a discussion
