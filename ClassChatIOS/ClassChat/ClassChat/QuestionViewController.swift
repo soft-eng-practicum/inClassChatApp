@@ -13,7 +13,7 @@ class QuestionViewController: UITableViewController {
     @IBOutlet weak var pageTitleItem: UINavigationItem!
     
     
-    var QuestionArray = [String]()
+    var QuestionArray = [Question]()
     
     var selectedCourse: Course!
     
@@ -36,7 +36,7 @@ class QuestionViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("QuestionCell", forIndexPath: indexPath) as UITableViewCell
-        cell.textLabel?.text = QuestionArray[indexPath.row]
+        cell.textLabel?.text = QuestionArray[indexPath.row].question
         return cell
     }
 

@@ -45,7 +45,7 @@ class AddQuestionViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if (segue.identifier == "saveQuestionSegue") {
-            self.selectedCourse.questionList.append(QuestionField.text)
+            self.selectedCourse.questionList.append(Question(question: QuestionField.text))
 //            var navigationController = segue.destinationViewController as UINavigationController
             var DestinationViewController = segue.destinationViewController as QuestionViewController
             DestinationViewController.selectedCourse = self.selectedCourse
