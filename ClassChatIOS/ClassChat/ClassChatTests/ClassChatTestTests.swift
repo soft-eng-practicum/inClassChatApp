@@ -1,15 +1,15 @@
 //
-//  ClassChatTests.swift
-//  ClassChatTests
+//  ClassChatTestTests.swift
+//  ClassChatTestTests
 //
-//  Created by Jake on 3/4/15.
+//  Created by Jake on 3/11/15.
 //  Copyright (c) 2015 Jake. All rights reserved.
 //
 
 import UIKit
 import XCTest
 
-class ClassChatTests: XCTestCase {
+class ClassChatTestTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
