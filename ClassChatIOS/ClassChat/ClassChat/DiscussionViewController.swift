@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DiscussionViewController: UIViewController, UITableViewDelegate {
+class DiscussionViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var commentTable: UITableView!
@@ -17,6 +17,7 @@ class DiscussionViewController: UIViewController, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         questionLabel.text = selectedQuestion.question
+        self.commentTable.registerClass(UITableViewCell.self, forCellReuseIdentifier: "commentCell")
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -24,15 +25,28 @@ class DiscussionViewController: UIViewController, UITableViewDelegate {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var Cell = self.tableView.dequeueReusableCellWithIdentifier("ClassCell", forIndexPath: indexPath) as UITableViewCell
-        Cell.textLabel?.text = ClassTableArray[indexPath.row].title
-        Cell.detailTextLabel?.text = ClassTableArray[indexPath.row].description
-        
-        return Cell
+        var cell: UITableViewCell = self.commentTable.dequeueReusableCellWithIdentifier("commentCell") as UITableViewCell
+        cell.textLabel?.text = selectedQuestion.commentList[indexPath.row].text
+        return cell
     }
     
+    @IBAction func unwindAddQuestionView(segue: UIStoryboardSegue) {
+        if let ACV = segue.sourceViewController as? AddCommentViewController {
+            self.selectedQuestion = ACV.selectedQuestion
+        }
+    }
+    
+    //selected cell
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "addCommentSegue") {
+            var DestinationViewController = segue.destinationViewController as AddCommentViewController
+            DestinationViewController.selectedQuestion = self.selectedQuestion
+        }
+    }
+    
     
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		235CC4051ABA7BF70066E882 /* AddCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235CC4041ABA7BF70066E882 /* AddCommentViewController.swift */; };
 		237502ED1ABA1558001EB182 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237502EA1ABA1558001EB182 /* Comment.swift */; };
 		237502EE1ABA1558001EB182 /* DiscussionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237502EB1ABA1558001EB182 /* DiscussionViewController.swift */; };
 		237502EF1ABA1558001EB182 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237502EC1ABA1558001EB182 /* Question.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		235CC4041ABA7BF70066E882 /* AddCommentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCommentViewController.swift; sourceTree = "<group>"; };
 		237502EA1ABA1558001EB182 /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		237502EB1ABA1558001EB182 /* DiscussionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscussionViewController.swift; sourceTree = "<group>"; };
 		237502EC1ABA1558001EB182 /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
@@ -111,9 +113,10 @@
 				237502EC1ABA1558001EB182 /* Question.swift */,
 				237502EA1ABA1558001EB182 /* Comment.swift */,
 				23EA52C61AB8D84D00E14EEA /* CurrentUser.swift */,
+				23EA52C51AB8D84D00E14EEA /* CreateUserViewController.swift */,
 				23EA52BC1AB8D84D00E14EEA /* AddCourseViewController.swift */,
 				23EA52BD1AB8D84D00E14EEA /* AddQuestionViewController.swift */,
-				23EA52C51AB8D84D00E14EEA /* CreateUserViewController.swift */,
+				235CC4041ABA7BF70066E882 /* AddCommentViewController.swift */,
 				23EA52C91AB8D84D00E14EEA /* LoginViewController.swift */,
 				23EA52C21AB8D84D00E14EEA /* ClassesViewController.swift */,
 				23EA52CB1AB8D84D00E14EEA /* QuestionViewController.swift */,
@@ -251,6 +254,7 @@
 				23EA52D91AB8D84D00E14EEA /* LoginViewController.swift in Sources */,
 				23EA52D41AB8D84D00E14EEA /* CourseStore.swift in Sources */,
 				237502EE1ABA1558001EB182 /* DiscussionViewController.swift in Sources */,
+				235CC4051ABA7BF70066E882 /* AddCommentViewController.swift in Sources */,
 				23EA52D01AB8D84D00E14EEA /* AppDelegate.swift in Sources */,
 				23EA52CF1AB8D84D00E14EEA /* AddQuestionViewController.swift in Sources */,
 				23EA52D51AB8D84D00E14EEA /* CreateUserViewController.swift in Sources */,
