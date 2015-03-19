@@ -17,10 +17,14 @@ class User {
     
     var name: String!
     var password: String!
+    var lastName: String!
+    var firstName: String!
     
-    init(name: String, password: String) {
+    init(name: String, password: String, firstName: String, lastName: String) {
         self.name = name
         self.password = password
+        self.firstName = firstName
+        self.lastName = lastName
     }
     
     var CourseList: [Course] = [Course(title: "My Questions", description: "Questions I have asked")]
