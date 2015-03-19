@@ -10,12 +10,14 @@ import UIKit
 
 class CreateUserViewController: UIViewController {
     
+    @IBOutlet weak var lastNameField: UITextField!
+    @IBOutlet weak var firstNameField: UITextField!
     @IBOutlet weak var warningLabel = UILabel()
     @IBOutlet weak var newUserNameField: UITextField!
     @IBOutlet weak var newPasswordField1: UITextField!
     @IBOutlet weak var newPasswordField2: UITextField!
-    
-    
+    var flag = true
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.warningLabel?.hidden = true
@@ -26,47 +28,31 @@ class CreateUserViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    override func shouldPerformSegueWithIdentifier(identifier: String!, sender: AnyObject!) -> Bool {
-        if identifier == "SaveAndDismiss" {
-
-            //Check if text is entered
-            if (self.newUserNameField.text.isEmpty) {
-                
-                let alert = UIAlertView()
-                alert.title = "No Text"
-                alert.message = "Please Enter Username In The Box"
-                alert.addButtonWithTitle("Ok")
-                alert.show()
-                
-                return false
-            }
-            
-            //Check if username already exists
-            else if (UserStore.sharedInstance.findUserNameIndex(self.newUserNameField.text) != -1) {
-                
-                let alert = UIAlertView()
-                alert.title = "Username Already Exists"
-                alert.message = "Please Enter New Username In The Box"
-                alert.addButtonWithTitle("Ok")
-                alert.show()
-                
-                return false
-            }
-                
-            else {
-                return true
-            }
-            
+    
+    @IBAction func createUser(sender: AnyObject) {
+        
+        var backend:Backend = Backend()
+        
+        func onSuccess(credentials:NSDictionary) {
+            print(credentials)
+            performSegueWithIdentifier("SaveAndDismiss", sender: self)
         }
         
-        // by default, transition
-        return true
+        func onFailure(error:String) {
+            let alert = UIAlertView()
+            alert.title = "Whoops!"
+            alert.message = error
+            alert.addButtonWithTitle("Ok")
+            alert.show()
+        }
+    
+        backend.createUser(firstNameField.text, lastName: lastNameField.text, email: newUserNameField.text, password: newPasswordField1.text, onSuccess: onSuccess, onFailure: onFailure)
     }
+
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if (segue.identifier == "SaveAndDismiss") {
-            let newUser = User(name: newUserNameField.text, password: newPasswordField1.text)
+            let newUser = User(name: newUserNameField.text, password: newPasswordField1.text, firstName: firstNameField.text, lastName: lastNameField.text)
             UserStore.sharedInstance.add(newUser)
         }
     }

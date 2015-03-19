@@ -415,7 +415,7 @@
                         <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u03-Kb-PBS">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="School email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u03-Kb-PBS">
                                 <rect key="frame" x="182" y="160" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -432,9 +432,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="0t7-BP-SQq" kind="popoverPresentation" identifier="SaveAndDismiss" popoverAnchorView="FMw-4l-Un6" id="WMp-0M-3bf">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
+                                    <action selector="createUser:" destination="7ep-XB-DB9" eventType="touchUpInside" id="KG0-XG-Nv5"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password1" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SxH-i2-McK">
@@ -447,13 +445,26 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T75-ak-b60">
+                                <rect key="frame" x="182" y="93" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ie0-mT-LH0">
+                                <rect key="frame" x="182" y="42" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="firstNameField" destination="ie0-mT-LH0" id="zF8-Uf-GHg"/>
+                        <outlet property="lastNameField" destination="T75-ak-b60" id="I4C-bH-Hha"/>
                         <outlet property="newPasswordField1" destination="SxH-i2-McK" id="dbu-Lq-8DI"/>
                         <outlet property="newPasswordField2" destination="7RD-O5-fvX" id="rwr-g5-DuX"/>
                         <outlet property="newUserNameField" destination="u03-Kb-PBS" id="JPi-Ob-nbk"/>
+                        <segue destination="0t7-BP-SQq" kind="presentation" identifier="SaveAndDismiss" id="0aG-uo-AZ7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tLs-xA-lo3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -462,7 +473,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="c5J-nB-O4M"/>
-        <segue reference="BvH-Wx-JUN"/>
+        <segue reference="0aG-uo-AZ7"/>
+        <segue reference="ioF-2q-Uep"/>
     </inferredMetricsTieBreakers>
 </document>
