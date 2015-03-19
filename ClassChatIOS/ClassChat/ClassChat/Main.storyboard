@@ -23,7 +23,7 @@
         <!--Add Class-->
         <scene sceneID="jOO-PJ-YnW">
             <objects>
-                <viewController id="Cj2-CF-yRM" customClass="AddCourseViewController" customModule="ClassChatTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Cj2-CF-yRM" customClass="AddCourseViewController" customModule="ClassChat" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3Gw-uE-Vja"/>
                         <viewControllerLayoutGuide type="bottom" id="CVw-li-5TE"/>
@@ -67,72 +67,10 @@
             </objects>
             <point key="canvasLocation" x="1271" y="384"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="oP1-BQ-5rN">
-            <objects>
-                <navigationController id="faD-kt-fph" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Lv5-e4-UrP">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="4tA-Cv-Ayu" kind="relationship" relationship="rootViewController" id="TgL-KG-z31"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="q3n-1R-Q4V" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1945" y="390"/>
-        </scene>
-        <!--Add Question View Controller-->
-        <scene sceneID="oof-GT-3a1">
-            <objects>
-                <viewController id="4tA-Cv-Ayu" customClass="AddQuestionViewController" customModule="ClassChatTest" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Q6E-8s-xBI"/>
-                        <viewControllerLayoutGuide type="bottom" id="bYI-gO-7sW"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="1fs-9z-MDF">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2gW-HH-fZO">
-                                <rect key="frame" x="71" y="200" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="2gW-HH-fZO" firstAttribute="height" secondItem="1fs-9z-MDF" secondAttribute="height" id="b0V-Gy-KR3"/>
-                            <constraint firstAttribute="centerY" secondItem="2gW-HH-fZO" secondAttribute="centerY" constant="85" id="f91-mH-Muj"/>
-                            <constraint firstItem="2gW-HH-fZO" firstAttribute="width" secondItem="1fs-9z-MDF" secondAttribute="width" id="rN2-wR-RVF"/>
-                            <constraint firstAttribute="centerX" secondItem="2gW-HH-fZO" secondAttribute="centerX" constant="180.5" id="ulC-wL-Hdd"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="Kg5-e6-gee">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="yYA-Ko-OIp">
-                            <connections>
-                                <segue destination="j7B-i2-R6E" kind="presentation" identifier="cancelNewQuestionSegue" id="S3d-69-xgj"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="fQk-Kv-83X">
-                            <connections>
-                                <segue destination="j7B-i2-R6E" kind="presentation" identifier="saveQuestionSegue" id="2BF-aI-AFt"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="QuestionField" destination="2gW-HH-fZO" id="Di8-bK-CAE"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="79g-qo-u5a" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2650" y="390"/>
-        </scene>
         <!--Classes-->
         <scene sceneID="ZSR-Oi-kpF">
             <objects>
-                <tableViewController id="XeY-9v-8hE" customClass="ClassesViewController" customModule="ClassChatTest" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="XeY-9v-8hE" customClass="ClassesViewController" customModule="ClassChat" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="zU1-fu-Vyo">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -187,7 +125,7 @@
         <!--Class Name-->
         <scene sceneID="Z7u-I7-Xb9">
             <objects>
-                <tableViewController id="j7B-i2-R6E" customClass="QuestionViewController" customModule="ClassChatTest" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="j7B-i2-R6E" customClass="QuestionViewController" customModule="ClassChat" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="rbq-sG-czP">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -207,7 +145,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="mJu-Bg-lbS" kind="show" identifier="showDetailSegue" id="f2H-Ti-SAw"/>
+                                    <segue destination="mJu-Bg-lbS" kind="show" identifier="discussionViewSegue" id="f2H-Ti-SAw"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -219,10 +157,11 @@
                     <navigationItem key="navigationItem" title="Class Name" id="zrN-So-Dce">
                         <barButtonItem key="rightBarButtonItem" title="Item" systemItem="add" id="v7N-41-9OV">
                             <connections>
-                                <segue destination="faD-kt-fph" kind="presentation" identifier="addQuestionSegue" id="dff-tu-CGZ"/>
+                                <segue destination="6Sb-BJ-Vdr" kind="presentation" identifier="addQuestionSegue" id="UBa-Wb-wNE"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="pageTitleItem" destination="zrN-So-Dce" id="j1S-D9-rGG"/>
                     </connections>
@@ -231,10 +170,115 @@
             </objects>
             <point key="canvasLocation" x="1945" y="1111"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Question View Controller-->
+        <scene sceneID="2jg-a4-CAI">
+            <objects>
+                <viewController id="6Sb-BJ-Vdr" customClass="AddQuestionViewController" customModule="ClassChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ifk-4C-AZJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="rfH-mO-Q5X"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dVY-lj-ijU">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UQn-c6-TqS">
+                                <rect key="frame" x="86" y="239" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d1E-Qz-4tA">
+                                <rect key="frame" x="86" y="173" width="71" height="30"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="BGd-JS-Osi" kind="unwind" unwindAction="unwindAddQuestionView:" id="5p5-Oj-6hH"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wYg-Il-hlX">
+                                <rect key="frame" x="91" y="85" width="46" height="30"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveQuestion:" destination="6Sb-BJ-Vdr" eventType="touchUpInside" id="wKT-xS-bIi"/>
+                                    <segue destination="BGd-JS-Osi" kind="unwind" unwindAction="unwindAddQuestionView:" id="4Oh-61-hNk"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="QuestionField" destination="UQn-c6-TqS" id="XKt-Gi-bEg"/>
+                        <outlet property="cancelButton" destination="d1E-Qz-4tA" id="QE0-tw-n1g"/>
+                        <outlet property="saveButton" destination="wYg-Il-hlX" id="ScJ-8d-unz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FEL-hm-mxr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="BGd-JS-Osi" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1945" y="384"/>
+        </scene>
+        <!--Add Comment View Controller-->
+        <scene sceneID="R9j-av-VQf">
+            <objects>
+                <viewController id="tMt-2h-un7" customClass="AddCommentViewController" customModule="ClassChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oEf-gt-grR"/>
+                        <viewControllerLayoutGuide type="bottom" id="sgJ-fS-qGZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cDR-xg-kMa">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r8u-sx-Xx5">
+                                <rect key="frame" x="123" y="71" width="114" height="50"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wi5-q7-oDL">
+                                <rect key="frame" x="157" y="268" width="46" height="30"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveComment:" destination="tMt-2h-un7" eventType="touchUpInside" id="ddH-Fc-NmZ"/>
+                                    <segue destination="dRO-gc-kI6" kind="unwind" unwindAction="unwindAddQuestionView:" id="9Fn-tc-73i"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ha1-JS-IRV">
+                                <rect key="frame" x="144" y="354" width="72" height="30"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="dRO-gc-kI6" kind="unwind" unwindAction="unwindAddQuestionView:" id="Bc6-As-zLD"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="934-2V-YVp">
+                                <rect key="frame" x="132" y="187" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="commentField" destination="934-2V-YVp" id="4Q1-SV-yzN"/>
+                        <outlet property="questionLabel" destination="r8u-sx-Xx5" id="vdE-4V-CtK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mzC-Jv-NUZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="dRO-gc-kI6" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2605" y="384"/>
+        </scene>
+        <!--Title-->
         <scene sceneID="KgT-kA-qRr">
             <objects>
-                <viewController id="mJu-Bg-lbS" sceneMemberID="viewController">
+                <viewController id="mJu-Bg-lbS" customClass="DiscussionViewController" customModule="ClassChat" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Xxe-a5-Tnv"/>
                         <viewControllerLayoutGuide type="bottom" id="cXJ-Yi-QwE"/>
@@ -242,17 +286,56 @@
                     <view key="view" contentMode="scaleToFill" id="QX6-Zs-Ob5">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aNU-cr-LcH">
+                                <rect key="frame" x="16" y="72" width="568" height="83"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="104" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Eik-cQ-NbI">
+                                <rect key="frame" x="16" y="150" width="568" height="450"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="commentCell" rowHeight="104" id="WAT-x6-wHb">
+                                        <rect key="frame" x="0.0" y="0.0" width="568" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WAT-x6-wHb" id="lvW-74-5Qj">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="mJu-Bg-lbS" id="XLN-DP-ktF"/>
+                                    <outlet property="delegate" destination="mJu-Bg-lbS" id="Mev-1K-DUW"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Title" id="kzH-tE-yME">
+                        <barButtonItem key="rightBarButtonItem" title="Comment" id="bdB-zI-TKv">
+                            <connections>
+                                <segue destination="tMt-2h-un7" kind="presentation" identifier="addCommentSegue" id="jSY-L6-Nmv"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="commentTable" destination="Eik-cQ-NbI" id="2yu-Pf-Cdq"/>
+                        <outlet property="questionLabel" destination="aNU-cr-LcH" id="0qX-Y0-8bx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NAi-WO-oYq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2607" y="1111"/>
+            <point key="canvasLocation" x="2605" y="1111"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="c1B-to-lbw">
             <objects>
-                <viewController id="0t7-BP-SQq" customClass="LoginViewController" customModule="ClassChatTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="0t7-BP-SQq" customClass="LoginViewController" customModule="ClassChat" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pmr-DD-vct"/>
                         <viewControllerLayoutGuide type="bottom" id="FEc-Py-M5z"/>
@@ -323,7 +406,7 @@
         <!--Create User View Controller-->
         <scene sceneID="Ec3-9z-M5k">
             <objects>
-                <viewController id="7ep-XB-DB9" customClass="CreateUserViewController" customModule="ClassChatTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="7ep-XB-DB9" customClass="CreateUserViewController" customModule="ClassChat" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yxg-LB-5uf"/>
                         <viewControllerLayoutGuide type="bottom" id="SwX-G1-CQN"/>
@@ -379,8 +462,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="S3d-69-xgj"/>
-        <segue reference="BvH-Wx-JUN"/>
         <segue reference="c5J-nB-O4M"/>
+        <segue reference="BvH-Wx-JUN"/>
     </inferredMetricsTieBreakers>
 </document>
