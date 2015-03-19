@@ -11,50 +11,31 @@ import UIKit
 
 class AddQuestionViewController: UIViewController {
     
+
+    
+    @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var QuestionField: UITextField!
+    
     var selectedCourse: Course!
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
+    @IBAction func saveQuestion(sender: AnyObject) {
+        if (self.QuestionField.text.isEmpty) {
+            let alert = UIAlertView()
+            alert.title = "No Text"
+            alert.message = "Please type a question"
+            alert.addButtonWithTitle("Ok")
+            alert.show()
+        } else {
+            self.selectedCourse.questionList.append(Question(question: QuestionField.text))
+        }
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    override func shouldPerformSegueWithIdentifier(identifier: String!, sender: AnyObject!) -> Bool {
-        if identifier == "saveQuestionSegue" {
-                
-                //Check if text is entered
-            if (self.QuestionField.text.isEmpty) {
-                
-                let alert = UIAlertView()
-                alert.title = "No Text"
-                alert.message = "Please type a question"
-                alert.addButtonWithTitle("Ok")
-                alert.show()
-                
-                return false
-            }
-            
-        }
-        // by default, transition
-        return true
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        if (segue.identifier == "saveQuestionSegue") {
-            self.selectedCourse.questionList.append(Question(question: QuestionField.text))
-//            var navigationController = segue.destinationViewController as UINavigationController
-            var DestinationViewController = segue.destinationViewController as QuestionViewController
-            DestinationViewController.selectedCourse = self.selectedCourse
-        }
-        
-        if (segue.identifier == "cancelNewQuestionSegue") {
-//            var navigationController = segue.destinationViewController as UINavigationController
-            var DestinationViewController = segue.destinationViewController as QuestionViewController
-            DestinationViewController.selectedCourse = self.selectedCourse
-        }
     }
 }
