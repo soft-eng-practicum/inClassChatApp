@@ -7,58 +7,76 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		238FC2BA1AA7F7C90012509C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238FC2B91AA7F7C90012509C /* AppDelegate.swift */; };
-		238FC2BD1AA7F7C90012509C /* ClassChat.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 238FC2BB1AA7F7C90012509C /* ClassChat.xcdatamodeld */; };
-		238FC2BF1AA7F7C90012509C /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238FC2BE1AA7F7C90012509C /* MasterViewController.swift */; };
-		238FC2C11AA7F7C90012509C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238FC2C01AA7F7C90012509C /* DetailViewController.swift */; };
-		238FC2C41AA7F7C90012509C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 238FC2C21AA7F7C90012509C /* Main.storyboard */; };
-		238FC2C61AA7F7C90012509C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 238FC2C51AA7F7C90012509C /* Images.xcassets */; };
-		238FC2C91AA7F7C90012509C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 238FC2C71AA7F7C90012509C /* LaunchScreen.xib */; };
-		238FC2D51AA7F7C90012509C /* ClassChatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238FC2D41AA7F7C90012509C /* ClassChatTests.swift */; };
-		238FC2E11AA80BC20012509C /* AddClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238FC2E01AA80BC20012509C /* AddClass.swift */; };
-		238FC2E31AA80EDE0012509C /* DismissSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238FC2E21AA80EDE0012509C /* DismissSegue.swift */; };
-		23C1FC6C1AA8E0F700A26E88 /* Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C1FC6B1AA8E0F700A26E88 /* Class.swift */; };
-		23C1FC6E1AA8E1BB00A26E88 /* ClassStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C1FC6D1AA8E1BB00A26E88 /* ClassStore.swift */; };
+		235CC4051ABA7BF70066E882 /* AddCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235CC4041ABA7BF70066E882 /* AddCommentViewController.swift */; };
+		237502ED1ABA1558001EB182 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237502EA1ABA1558001EB182 /* Comment.swift */; };
+		237502EE1ABA1558001EB182 /* DiscussionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237502EB1ABA1558001EB182 /* DiscussionViewController.swift */; };
+		237502EF1ABA1558001EB182 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237502EC1ABA1558001EB182 /* Question.swift */; };
+		23EA52CE1AB8D84D00E14EEA /* AddCourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EA52BC1AB8D84D00E14EEA /* AddCourseViewController.swift */; };
+		23EA52CF1AB8D84D00E14EEA /* AddQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EA52BD1AB8D84D00E14EEA /* AddQuestionViewController.swift */; };
+		23EA52D01AB8D84D00E14EEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EA52BE1AB8D84D00E14EEA /* AppDelegate.swift */; };
+		23EA52D11AB8D84D00E14EEA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23EA52C01AB8D84D00E14EEA /* LaunchScreen.xib */; };
+		23EA52D21AB8D84D00E14EEA /* ClassesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EA52C21AB8D84D00E14EEA /* ClassesViewController.swift */; };
+		23EA52D31AB8D84D00E14EEA /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EA52C31AB8D84D00E14EEA /* Course.swift */; };
+		23EA52D41AB8D84D00E14EEA /* CourseStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EA52C41AB8D84D00E14EEA /* CourseStore.swift */; };
+		23EA52D51AB8D84D00E14EEA /* CreateUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EA52C51AB8D84D00E14EEA /* CreateUserViewController.swift */; };
+		23EA52D61AB8D84D00E14EEA /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EA52C61AB8D84D00E14EEA /* CurrentUser.swift */; };
+		23EA52D71AB8D84D00E14EEA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23EA52C71AB8D84D00E14EEA /* Images.xcassets */; };
+		23EA52D81AB8D84D00E14EEA /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 23EA52C81AB8D84D00E14EEA /* Info.plist */; };
+		23EA52D91AB8D84D00E14EEA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EA52C91AB8D84D00E14EEA /* LoginViewController.swift */; };
+		23EA52DA1AB8D84D00E14EEA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23EA52CA1AB8D84D00E14EEA /* Main.storyboard */; };
+		23EA52DB1AB8D84D00E14EEA /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EA52CB1AB8D84D00E14EEA /* QuestionViewController.swift */; };
+		23EA52DC1AB8D84D00E14EEA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EA52CC1AB8D84D00E14EEA /* User.swift */; };
+		23EA52DD1AB8D84D00E14EEA /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EA52CD1AB8D84D00E14EEA /* UserStore.swift */; };
+		23EA52E01AB8D85600E14EEA /* ClassChatTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EA52DE1AB8D85600E14EEA /* ClassChatTestTests.swift */; };
+		23EA52E11AB8D85600E14EEA /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 23EA52DF1AB8D85600E14EEA /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		238FC2CF1AA7F7C90012509C /* PBXContainerItemProxy */ = {
+		23EA52AD1AB8D7AA00E14EEA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 238FC2AC1AA7F7C90012509C /* Project object */;
+			containerPortal = 23EA528F1AB8D7A900E14EEA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 238FC2B31AA7F7C90012509C;
+			remoteGlobalIDString = 23EA52961AB8D7A900E14EEA;
 			remoteInfo = ClassChat;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		238FC2B41AA7F7C90012509C /* ClassChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClassChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		238FC2B81AA7F7C90012509C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		238FC2B91AA7F7C90012509C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		238FC2BC1AA7F7C90012509C /* ClassChat.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ClassChat.xcdatamodel; sourceTree = "<group>"; };
-		238FC2BE1AA7F7C90012509C /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
-		238FC2C01AA7F7C90012509C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		238FC2C31AA7F7C90012509C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		238FC2C51AA7F7C90012509C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		238FC2C81AA7F7C90012509C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		238FC2CE1AA7F7C90012509C /* ClassChatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClassChatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		238FC2D31AA7F7C90012509C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		238FC2D41AA7F7C90012509C /* ClassChatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassChatTests.swift; sourceTree = "<group>"; };
-		238FC2E01AA80BC20012509C /* AddClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddClass.swift; path = ../AddClass.swift; sourceTree = "<group>"; };
-		238FC2E21AA80EDE0012509C /* DismissSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissSegue.swift; sourceTree = "<group>"; };
-		23C1FC6B1AA8E0F700A26E88 /* Class.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Class.swift; sourceTree = "<group>"; };
-		23C1FC6D1AA8E1BB00A26E88 /* ClassStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassStore.swift; sourceTree = "<group>"; };
+		235CC4041ABA7BF70066E882 /* AddCommentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCommentViewController.swift; sourceTree = "<group>"; };
+		237502EA1ABA1558001EB182 /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		237502EB1ABA1558001EB182 /* DiscussionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscussionViewController.swift; sourceTree = "<group>"; };
+		237502EC1ABA1558001EB182 /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		23EA52971AB8D7A900E14EEA /* ClassChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClassChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		23EA52AC1AB8D7AA00E14EEA /* ClassChatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClassChatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		23EA52BC1AB8D84D00E14EEA /* AddCourseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCourseViewController.swift; sourceTree = "<group>"; };
+		23EA52BD1AB8D84D00E14EEA /* AddQuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddQuestionViewController.swift; sourceTree = "<group>"; };
+		23EA52BE1AB8D84D00E14EEA /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		23EA52C11AB8D84D00E14EEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = LaunchScreen.xib; sourceTree = "<group>"; };
+		23EA52C21AB8D84D00E14EEA /* ClassesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassesViewController.swift; sourceTree = "<group>"; };
+		23EA52C31AB8D84D00E14EEA /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
+		23EA52C41AB8D84D00E14EEA /* CourseStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseStore.swift; sourceTree = "<group>"; };
+		23EA52C51AB8D84D00E14EEA /* CreateUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateUserViewController.swift; sourceTree = "<group>"; };
+		23EA52C61AB8D84D00E14EEA /* CurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
+		23EA52C71AB8D84D00E14EEA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		23EA52C81AB8D84D00E14EEA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		23EA52C91AB8D84D00E14EEA /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		23EA52CA1AB8D84D00E14EEA /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		23EA52CB1AB8D84D00E14EEA /* QuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
+		23EA52CC1AB8D84D00E14EEA /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		23EA52CD1AB8D84D00E14EEA /* UserStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
+		23EA52DE1AB8D85600E14EEA /* ClassChatTestTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassChatTestTests.swift; sourceTree = "<group>"; };
+		23EA52DF1AB8D85600E14EEA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		238FC2B11AA7F7C90012509C /* Frameworks */ = {
+		23EA52941AB8D7A900E14EEA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		238FC2CB1AA7F7C90012509C /* Frameworks */ = {
+		23EA52A91AB8D7AA00E14EEA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -68,78 +86,78 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		238FC2AB1AA7F7C90012509C = {
+		23EA528E1AB8D7A900E14EEA = {
 			isa = PBXGroup;
 			children = (
-				238FC2B61AA7F7C90012509C /* ClassChat */,
-				238FC2D11AA7F7C90012509C /* ClassChatTests */,
-				238FC2B51AA7F7C90012509C /* Products */,
+				23EA52991AB8D7A900E14EEA /* ClassChat */,
+				23EA52AF1AB8D7AA00E14EEA /* ClassChatTests */,
+				23EA52981AB8D7A900E14EEA /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		238FC2B51AA7F7C90012509C /* Products */ = {
+		23EA52981AB8D7A900E14EEA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				238FC2B41AA7F7C90012509C /* ClassChat.app */,
-				238FC2CE1AA7F7C90012509C /* ClassChatTests.xctest */,
+				23EA52971AB8D7A900E14EEA /* ClassChat.app */,
+				23EA52AC1AB8D7AA00E14EEA /* ClassChatTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		238FC2B61AA7F7C90012509C /* ClassChat */ = {
+		23EA52991AB8D7A900E14EEA /* ClassChat */ = {
 			isa = PBXGroup;
 			children = (
-				238FC2E01AA80BC20012509C /* AddClass.swift */,
-				238FC2B91AA7F7C90012509C /* AppDelegate.swift */,
-				238FC2BE1AA7F7C90012509C /* MasterViewController.swift */,
-				238FC2C01AA7F7C90012509C /* DetailViewController.swift */,
-				238FC2C21AA7F7C90012509C /* Main.storyboard */,
-				23C1FC6B1AA8E0F700A26E88 /* Class.swift */,
-				23C1FC6D1AA8E1BB00A26E88 /* ClassStore.swift */,
-				238FC2E21AA80EDE0012509C /* DismissSegue.swift */,
-				238FC2C51AA7F7C90012509C /* Images.xcassets */,
-				238FC2C71AA7F7C90012509C /* LaunchScreen.xib */,
-				238FC2BB1AA7F7C90012509C /* ClassChat.xcdatamodeld */,
-				238FC2B71AA7F7C90012509C /* Supporting Files */,
+				23EA52BE1AB8D84D00E14EEA /* AppDelegate.swift */,
+				23EA52CC1AB8D84D00E14EEA /* User.swift */,
+				23EA52C31AB8D84D00E14EEA /* Course.swift */,
+				237502EC1ABA1558001EB182 /* Question.swift */,
+				237502EA1ABA1558001EB182 /* Comment.swift */,
+				23EA52C61AB8D84D00E14EEA /* CurrentUser.swift */,
+				23EA52C51AB8D84D00E14EEA /* CreateUserViewController.swift */,
+				23EA52BC1AB8D84D00E14EEA /* AddCourseViewController.swift */,
+				23EA52BD1AB8D84D00E14EEA /* AddQuestionViewController.swift */,
+				235CC4041ABA7BF70066E882 /* AddCommentViewController.swift */,
+				23EA52C91AB8D84D00E14EEA /* LoginViewController.swift */,
+				23EA52C21AB8D84D00E14EEA /* ClassesViewController.swift */,
+				23EA52CB1AB8D84D00E14EEA /* QuestionViewController.swift */,
+				237502EB1ABA1558001EB182 /* DiscussionViewController.swift */,
+				23EA52CA1AB8D84D00E14EEA /* Main.storyboard */,
+				23EA52C71AB8D84D00E14EEA /* Images.xcassets */,
+				23EA52C81AB8D84D00E14EEA /* Info.plist */,
+				23EA52C41AB8D84D00E14EEA /* CourseStore.swift */,
+				23EA52CD1AB8D84D00E14EEA /* UserStore.swift */,
+				23EA52BF1AB8D84D00E14EEA /* Base.lproj */,
 			);
 			path = ClassChat;
 			sourceTree = "<group>";
 		};
-		238FC2B71AA7F7C90012509C /* Supporting Files */ = {
+		23EA52AF1AB8D7AA00E14EEA /* ClassChatTests */ = {
 			isa = PBXGroup;
 			children = (
-				238FC2B81AA7F7C90012509C /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		238FC2D11AA7F7C90012509C /* ClassChatTests */ = {
-			isa = PBXGroup;
-			children = (
-				238FC2D41AA7F7C90012509C /* ClassChatTests.swift */,
-				238FC2D21AA7F7C90012509C /* Supporting Files */,
+				23EA52DE1AB8D85600E14EEA /* ClassChatTestTests.swift */,
+				23EA52DF1AB8D85600E14EEA /* Info.plist */,
 			);
 			path = ClassChatTests;
 			sourceTree = "<group>";
 		};
-		238FC2D21AA7F7C90012509C /* Supporting Files */ = {
+		23EA52BF1AB8D84D00E14EEA /* Base.lproj */ = {
 			isa = PBXGroup;
 			children = (
-				238FC2D31AA7F7C90012509C /* Info.plist */,
+				23EA52C01AB8D84D00E14EEA /* LaunchScreen.xib */,
 			);
-			name = "Supporting Files";
+			path = Base.lproj;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		238FC2B31AA7F7C90012509C /* ClassChat */ = {
+		23EA52961AB8D7A900E14EEA /* ClassChat */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 238FC2D81AA7F7C90012509C /* Build configuration list for PBXNativeTarget "ClassChat" */;
+			buildConfigurationList = 23EA52B61AB8D7AA00E14EEA /* Build configuration list for PBXNativeTarget "ClassChat" */;
 			buildPhases = (
-				238FC2B01AA7F7C90012509C /* Sources */,
-				238FC2B11AA7F7C90012509C /* Frameworks */,
-				238FC2B21AA7F7C90012509C /* Resources */,
+				23EA52931AB8D7A900E14EEA /* Sources */,
+				23EA52941AB8D7A900E14EEA /* Frameworks */,
+				23EA52951AB8D7A900E14EEA /* Resources */,
 			);
 			buildRules = (
 			);
@@ -147,46 +165,46 @@
 			);
 			name = ClassChat;
 			productName = ClassChat;
-			productReference = 238FC2B41AA7F7C90012509C /* ClassChat.app */;
+			productReference = 23EA52971AB8D7A900E14EEA /* ClassChat.app */;
 			productType = "com.apple.product-type.application";
 		};
-		238FC2CD1AA7F7C90012509C /* ClassChatTests */ = {
+		23EA52AB1AB8D7AA00E14EEA /* ClassChatTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 238FC2DB1AA7F7C90012509C /* Build configuration list for PBXNativeTarget "ClassChatTests" */;
+			buildConfigurationList = 23EA52B91AB8D7AA00E14EEA /* Build configuration list for PBXNativeTarget "ClassChatTests" */;
 			buildPhases = (
-				238FC2CA1AA7F7C90012509C /* Sources */,
-				238FC2CB1AA7F7C90012509C /* Frameworks */,
-				238FC2CC1AA7F7C90012509C /* Resources */,
+				23EA52A81AB8D7AA00E14EEA /* Sources */,
+				23EA52A91AB8D7AA00E14EEA /* Frameworks */,
+				23EA52AA1AB8D7AA00E14EEA /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				238FC2D01AA7F7C90012509C /* PBXTargetDependency */,
+				23EA52AE1AB8D7AA00E14EEA /* PBXTargetDependency */,
 			);
 			name = ClassChatTests;
 			productName = ClassChatTests;
-			productReference = 238FC2CE1AA7F7C90012509C /* ClassChatTests.xctest */;
+			productReference = 23EA52AC1AB8D7AA00E14EEA /* ClassChatTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		238FC2AC1AA7F7C90012509C /* Project object */ = {
+		23EA528F1AB8D7A900E14EEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = Jake;
 				TargetAttributes = {
-					238FC2B31AA7F7C90012509C = {
+					23EA52961AB8D7A900E14EEA = {
 						CreatedOnToolsVersion = 6.1.1;
 					};
-					238FC2CD1AA7F7C90012509C = {
+					23EA52AB1AB8D7AA00E14EEA = {
 						CreatedOnToolsVersion = 6.1.1;
-						TestTargetID = 238FC2B31AA7F7C90012509C;
+						TestTargetID = 23EA52961AB8D7A900E14EEA;
 					};
 				};
 			};
-			buildConfigurationList = 238FC2AF1AA7F7C90012509C /* Build configuration list for PBXProject "ClassChat" */;
+			buildConfigurationList = 23EA52921AB8D7A900E14EEA /* Build configuration list for PBXProject "ClassChat" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -194,84 +212,86 @@
 				en,
 				Base,
 			);
-			mainGroup = 238FC2AB1AA7F7C90012509C;
-			productRefGroup = 238FC2B51AA7F7C90012509C /* Products */;
+			mainGroup = 23EA528E1AB8D7A900E14EEA;
+			productRefGroup = 23EA52981AB8D7A900E14EEA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				238FC2B31AA7F7C90012509C /* ClassChat */,
-				238FC2CD1AA7F7C90012509C /* ClassChatTests */,
+				23EA52961AB8D7A900E14EEA /* ClassChat */,
+				23EA52AB1AB8D7AA00E14EEA /* ClassChatTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		238FC2B21AA7F7C90012509C /* Resources */ = {
+		23EA52951AB8D7A900E14EEA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				238FC2C41AA7F7C90012509C /* Main.storyboard in Resources */,
-				238FC2C91AA7F7C90012509C /* LaunchScreen.xib in Resources */,
-				238FC2C61AA7F7C90012509C /* Images.xcassets in Resources */,
+				23EA52D11AB8D84D00E14EEA /* LaunchScreen.xib in Resources */,
+				23EA52D71AB8D84D00E14EEA /* Images.xcassets in Resources */,
+				23EA52D81AB8D84D00E14EEA /* Info.plist in Resources */,
+				23EA52DA1AB8D84D00E14EEA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		238FC2CC1AA7F7C90012509C /* Resources */ = {
+		23EA52AA1AB8D7AA00E14EEA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23EA52E11AB8D85600E14EEA /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		238FC2B01AA7F7C90012509C /* Sources */ = {
+		23EA52931AB8D7A900E14EEA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				238FC2E11AA80BC20012509C /* AddClass.swift in Sources */,
-				238FC2BD1AA7F7C90012509C /* ClassChat.xcdatamodeld in Sources */,
-				23C1FC6C1AA8E0F700A26E88 /* Class.swift in Sources */,
-				238FC2BA1AA7F7C90012509C /* AppDelegate.swift in Sources */,
-				238FC2BF1AA7F7C90012509C /* MasterViewController.swift in Sources */,
-				238FC2E31AA80EDE0012509C /* DismissSegue.swift in Sources */,
-				23C1FC6E1AA8E1BB00A26E88 /* ClassStore.swift in Sources */,
-				238FC2C11AA7F7C90012509C /* DetailViewController.swift in Sources */,
+				237502EF1ABA1558001EB182 /* Question.swift in Sources */,
+				23EA52D91AB8D84D00E14EEA /* LoginViewController.swift in Sources */,
+				23EA52D41AB8D84D00E14EEA /* CourseStore.swift in Sources */,
+				237502EE1ABA1558001EB182 /* DiscussionViewController.swift in Sources */,
+				235CC4051ABA7BF70066E882 /* AddCommentViewController.swift in Sources */,
+				23EA52D01AB8D84D00E14EEA /* AppDelegate.swift in Sources */,
+				23EA52CF1AB8D84D00E14EEA /* AddQuestionViewController.swift in Sources */,
+				23EA52D51AB8D84D00E14EEA /* CreateUserViewController.swift in Sources */,
+				23EA52D31AB8D84D00E14EEA /* Course.swift in Sources */,
+				23EA52DD1AB8D84D00E14EEA /* UserStore.swift in Sources */,
+				23EA52DB1AB8D84D00E14EEA /* QuestionViewController.swift in Sources */,
+				237502ED1ABA1558001EB182 /* Comment.swift in Sources */,
+				23EA52CE1AB8D84D00E14EEA /* AddCourseViewController.swift in Sources */,
+				23EA52D61AB8D84D00E14EEA /* CurrentUser.swift in Sources */,
+				23EA52D21AB8D84D00E14EEA /* ClassesViewController.swift in Sources */,
+				23EA52DC1AB8D84D00E14EEA /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		238FC2CA1AA7F7C90012509C /* Sources */ = {
+		23EA52A81AB8D7AA00E14EEA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				238FC2D51AA7F7C90012509C /* ClassChatTests.swift in Sources */,
+				23EA52E01AB8D85600E14EEA /* ClassChatTestTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		238FC2D01AA7F7C90012509C /* PBXTargetDependency */ = {
+		23EA52AE1AB8D7AA00E14EEA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 238FC2B31AA7F7C90012509C /* ClassChat */;
-			targetProxy = 238FC2CF1AA7F7C90012509C /* PBXContainerItemProxy */;
+			target = 23EA52961AB8D7A900E14EEA /* ClassChat */;
+			targetProxy = 23EA52AD1AB8D7AA00E14EEA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		238FC2C21AA7F7C90012509C /* Main.storyboard */ = {
+		23EA52C01AB8D84D00E14EEA /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				238FC2C31AA7F7C90012509C /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		238FC2C71AA7F7C90012509C /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				238FC2C81AA7F7C90012509C /* Base */,
+				23EA52C11AB8D84D00E14EEA /* Base */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
@@ -279,7 +299,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		238FC2D61AA7F7C90012509C /* Debug */ = {
+		23EA52B41AB8D7AA00E14EEA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -321,7 +341,7 @@
 			};
 			name = Debug;
 		};
-		238FC2D71AA7F7C90012509C /* Release */ = {
+		23EA52B51AB8D7AA00E14EEA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -356,29 +376,27 @@
 			};
 			name = Release;
 		};
-		238FC2D91AA7F7C90012509C /* Debug */ = {
+		23EA52B71AB8D7AA00E14EEA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ClassChat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
-		238FC2DA1AA7F7C90012509C /* Release */ = {
+		23EA52B81AB8D7AA00E14EEA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ClassChat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
-		238FC2DC1AA7F7C90012509C /* Debug */ = {
+		23EA52BA1AB8D7AA00E14EEA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -397,7 +415,7 @@
 			};
 			name = Debug;
 		};
-		238FC2DD1AA7F7C90012509C /* Release */ = {
+		23EA52BB1AB8D7AA00E14EEA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -415,47 +433,34 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		238FC2AF1AA7F7C90012509C /* Build configuration list for PBXProject "ClassChat" */ = {
+		23EA52921AB8D7A900E14EEA /* Build configuration list for PBXProject "ClassChat" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				238FC2D61AA7F7C90012509C /* Debug */,
-				238FC2D71AA7F7C90012509C /* Release */,
+				23EA52B41AB8D7AA00E14EEA /* Debug */,
+				23EA52B51AB8D7AA00E14EEA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		238FC2D81AA7F7C90012509C /* Build configuration list for PBXNativeTarget "ClassChat" */ = {
+		23EA52B61AB8D7AA00E14EEA /* Build configuration list for PBXNativeTarget "ClassChat" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				238FC2D91AA7F7C90012509C /* Debug */,
-				238FC2DA1AA7F7C90012509C /* Release */,
+				23EA52B71AB8D7AA00E14EEA /* Debug */,
+				23EA52B81AB8D7AA00E14EEA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		238FC2DB1AA7F7C90012509C /* Build configuration list for PBXNativeTarget "ClassChatTests" */ = {
+		23EA52B91AB8D7AA00E14EEA /* Build configuration list for PBXNativeTarget "ClassChatTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				238FC2DC1AA7F7C90012509C /* Debug */,
-				238FC2DD1AA7F7C90012509C /* Release */,
+				23EA52BA1AB8D7AA00E14EEA /* Debug */,
+				23EA52BB1AB8D7AA00E14EEA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		238FC2BB1AA7F7C90012509C /* ClassChat.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				238FC2BC1AA7F7C90012509C /* ClassChat.xcdatamodel */,
-			);
-			currentVersion = 238FC2BC1AA7F7C90012509C /* ClassChat.xcdatamodel */;
-			path = ClassChat.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
-	rootObject = 238FC2AC1AA7F7C90012509C /* Project object */;
+	rootObject = 23EA528F1AB8D7A900E14EEA /* Project object */;
 }
