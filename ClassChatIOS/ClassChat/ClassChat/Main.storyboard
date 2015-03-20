@@ -239,7 +239,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wi5-q7-oDL">
-                                <rect key="frame" x="157" y="268" width="46" height="30"/>
+                                <rect key="frame" x="61" y="129" width="46" height="30"/>
                                 <state key="normal" title="Save">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -248,8 +248,13 @@
                                     <segue destination="dRO-gc-kI6" kind="unwind" unwindAction="unwindAddQuestionView:" id="9Fn-tc-73i"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="934-2V-YVp">
+                                <rect key="frame" x="132" y="187" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ha1-JS-IRV">
-                                <rect key="frame" x="144" y="354" width="72" height="30"/>
+                                <rect key="frame" x="35" y="187" width="72" height="30"/>
                                 <state key="normal" title="Cancel">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -257,11 +262,6 @@
                                     <segue destination="dRO-gc-kI6" kind="unwind" unwindAction="unwindAddQuestionView:" id="Bc6-As-zLD"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="934-2V-YVp">
-                                <rect key="frame" x="132" y="187" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -356,7 +356,7 @@
                                     <color key="titleColor" red="0.0" green="0.61626233552631571" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="7s5-HZ-5Qu" kind="presentation" identifier="loginSegue" id="BvH-Wx-JUN"/>
+                                    <action selector="loginNow:" destination="0t7-BP-SQq" eventType="touchUpInside" id="J89-XU-qM6"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7gs-qY-JZ4">
@@ -381,6 +381,7 @@
                     <connections>
                         <outlet property="PasswordField" destination="XuQ-Sk-EMP" id="dD7-Xc-XFV"/>
                         <outlet property="UsernameField" destination="mG4-II-CZp" id="QzU-Xq-PYi"/>
+                        <segue destination="7s5-HZ-5Qu" kind="presentation" identifier="loginSegue" id="EHo-HL-dI3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KcO-to-7EA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -426,15 +427,6 @@
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FMw-4l-Un6">
-                                <rect key="frame" x="135" y="377" width="203" height="30"/>
-                                <state key="normal" title="Create User">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="createUser:" destination="7ep-XB-DB9" eventType="touchUpInside" id="KG0-XG-Nv5"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password1" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SxH-i2-McK">
                                 <rect key="frame" x="182" y="234" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -455,6 +447,24 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FMw-4l-Un6">
+                                <rect key="frame" x="-19" y="131" width="203" height="30"/>
+                                <state key="normal" title="Create User">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="createUser:" destination="7ep-XB-DB9" eventType="touchUpInside" id="KG0-XG-Nv5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KXI-Fv-gd6">
+                                <rect key="frame" x="48" y="184" width="68" height="30"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="0t7-BP-SQq" kind="presentation" identifier="cancelNewUserSegue" id="JLP-m6-oWz"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -473,7 +483,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="0aG-uo-AZ7"/>
-        <segue reference="ioF-2q-Uep"/>
+        <segue reference="EHo-HL-dI3"/>
+        <segue reference="JLP-m6-oWz"/>
     </inferredMetricsTieBreakers>
 </document>

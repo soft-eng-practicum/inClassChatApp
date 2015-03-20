@@ -23,50 +23,34 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    
-    // MARK: - Navigation
-    override func shouldPerformSegueWithIdentifier(identifier: String!, sender: AnyObject!) -> Bool {
-        if identifier == "loginSegue" {
-            
-            //Check if text is entered
-            if (self.UsernameField.text.isEmpty) {
-                
-                let alert = UIAlertView()
-                alert.title = "No Text"
-                alert.message = "Please Enter Username In The Box"
-                alert.addButtonWithTitle("Ok")
-                alert.show()
-                
-                return false
-            }
-                
-            //Check if doesn't exist
-            else if (UserStore.sharedInstance.findUserNameIndex(self.UsernameField.text) == -1) {
-                
-                let alert = UIAlertView()
-                alert.title = "Username Does Not Exist"
-                alert.message = "Please Enter New Username In The Box Or Create New Account"
-                alert.addButtonWithTitle("Ok")
-                alert.show()
-                
-                return false
-            }
-                
-            else {
-                return true
-            }
-            
-        }
+    func loggedIn(user:NSDictionary)->() {
         
-        // by default, transition
-        return true
+        print(user)
+        
+        let name:String! = user["email"] as String
+        let firstName:String! = user["first_name"] as String
+        let lastName:String! = user["last_name"] as String
+        let school_id: Int! = user["school_id"] as Int
+        
+        let newUser = User(name: name, password: name, firstName: firstName, lastName: lastName, school_id: school_id)
+        UserStore.sharedInstance.add(newUser)
+        
+        CurrentUser.sharedInstance.assignCurrentUser(newUser)        
+        performSegueWithIdentifier("loginSegue", sender: self)
+    }
+    
+    @IBAction func loginNow(sender: AnyObject) {
+        
+        var backend:Backend = Backend()
+        
+        backend.login(UsernameField.text, password: PasswordField.text, onSuccess: loggedIn)
+        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if (segue.identifier == "loginSegue") {
-            var i = UserStore.sharedInstance.findUserNameIndex(self.UsernameField.text)
-            CurrentUser.sharedInstance.assignCurrentUser(UserStore.sharedInstance.get(i))
+//            var i = UserStore.sharedInstance.findUserNameIndex(self.UsernameField.text)
+//            CurrentUser.sharedInstance.assignCurrentUser(UserStore.sharedInstance.get(i))
         }
     }
 }
