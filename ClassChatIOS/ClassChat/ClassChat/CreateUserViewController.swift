@@ -37,16 +37,8 @@ class CreateUserViewController: UIViewController {
             print(credentials)
             performSegueWithIdentifier("SaveAndDismiss", sender: self)
         }
-        
-        func onFailure(error:String) {
-            let alert = UIAlertView()
-            alert.title = "Whoops!"
-            alert.message = error
-            alert.addButtonWithTitle("Ok")
-            alert.show()
-        }
     
-        backend.createUser(firstNameField.text, lastName: lastNameField.text, email: newUserNameField.text, password: newPasswordField1.text, onSuccess: onSuccess, onFailure: onFailure)
+        backend.createUser(firstNameField.text, lastName: lastNameField.text, email: newUserNameField.text, password: newPasswordField1.text, onSuccess: onSuccess)
     }
 
     
