@@ -24,19 +24,17 @@ class LoginViewController: UIViewController {
     }
     
     func loggedIn(user:NSDictionary)->() {
-        
-        print(user)
-        
+
         let name:String! = user["email"] as String
         let firstName:String! = user["first_name"] as String
         let lastName:String! = user["last_name"] as String
-        let school_id: Int! = user["school_id"] as Int
-        
-        let newUser = User(name: name, password: name, firstName: firstName, lastName: lastName, school_id: school_id)
-        UserStore.sharedInstance.add(newUser)
-        
-        CurrentUser.sharedInstance.assignCurrentUser(newUser)        
+//        let school_id: ? = user["school_id"]
+//        let user_id:AnyObject? = user["id"]
+//        print(user_id! as? String)
+        let user = User(name: name, password: name, firstName: firstName, lastName: lastName, school_id: "1", user_id: "37")
+        CurrentUser.sharedInstance.assignCurrentUser(user)
         performSegueWithIdentifier("loginSegue", sender: self)
+        
     }
     
     @IBAction func loginNow(sender: AnyObject) {
@@ -49,8 +47,7 @@ class LoginViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if (segue.identifier == "loginSegue") {
-//            var i = UserStore.sharedInstance.findUserNameIndex(self.UsernameField.text)
-//            CurrentUser.sharedInstance.assignCurrentUser(UserStore.sharedInstance.get(i))
+            print(CurrentUser.sharedInstance.user.user_id)
         }
     }
 }

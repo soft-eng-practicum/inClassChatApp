@@ -24,58 +24,23 @@ class AddCourseViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func shouldPerformSegueWithIdentifier(identifier: String!, sender: AnyObject!) -> Bool {
-        if identifier == "saveCourseSegue" {
+    
+    //THIS WAS MADE MOSTLY BY GUESSWORK
+    @IBAction func addCoursePressed(sender: UIButton) {
+        
+        var backend: Backend = Backend()
+        
+        func onSuccess(credentials:NSDictionary) {
             
-            if (CurrentUser.sharedInstance.checkForDuplicates(self.courseField.text)) {
-                
-                let alert = UIAlertView()
-                alert.title = "Duplicate Class"
-                alert.message = "You already have this class"
-                alert.addButtonWithTitle("Ok")
-                alert.show()
-                
-                return false
-            }
+            CurrentUser.sharedInstance.user.CourseList.append(Course(title: course["course_name"], description: description.text)
             
-            //Check if text is entered
-            else if (self.courseField.text.isEmpty) {
-                
-                let alert = UIAlertView()
-                alert.title = "No Text"
-                alert.message = "Please write the class name"
-                alert.addButtonWithTitle("Ok")
-                alert.show()
-                
-                return false
-            }
-            
-            else if (self.descriptionField.text.isEmpty) {
-                
-                let alert = UIAlertView()
-                alert.title = "No Text"
-                alert.message = "Please write a brief description of the class"
-                alert.addButtonWithTitle("Ok")
-                alert.show()
-                
-                return false
-            }
-            
+            performSegueWithIdentifier("unwindAddCourse", sender: self)
         }
-        // by default, transition
-        return true
+        
+        backend.enrollUserInCourse(CurrentUser.sharedInstance.user.user_id, course_name: courseField.text, onSuccess: onSuccess())
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        if (segue.identifier == "saveCourseSegue") {
-            var flag = CourseStore.sharedInstance.findCourseIndex(self.courseField.text)
-            if (flag == -1) {
-                let course = Course(title: courseField.text, description: descriptionField.text)
-                CurrentUser.sharedInstance.user.CourseList.append(course)
-                CourseStore.sharedInstance.add(course)
-            } else {
-                CurrentUser.sharedInstance.user.CourseList.append(CourseStore.sharedInstance.get(flag))
-            }
-        }
+
     }
 }

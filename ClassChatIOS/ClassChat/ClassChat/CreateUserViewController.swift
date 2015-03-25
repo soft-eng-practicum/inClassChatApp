@@ -16,7 +16,6 @@ class CreateUserViewController: UIViewController {
     @IBOutlet weak var newUserNameField: UITextField!
     @IBOutlet weak var newPasswordField1: UITextField!
     @IBOutlet weak var newPasswordField2: UITextField!
-    var flag = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,9 +42,5 @@ class CreateUserViewController: UIViewController {
 
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        if (segue.identifier == "SaveAndDismiss") {
-            let newUser = User(name: newUserNameField.text, password: newPasswordField1.text, firstName: firstNameField.text, lastName: lastNameField.text)
-            UserStore.sharedInstance.add(newUser)
-        }
     }
 }

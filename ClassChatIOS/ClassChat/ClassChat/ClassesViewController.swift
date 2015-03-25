@@ -9,13 +9,9 @@
 import UIKit
 
 class ClassesViewController: UITableViewController {
-
-    //Test Stuff --
-    
     
     var ClassTableArray = [Course]()
     
-    //End of Test Stuff --
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -80,6 +76,10 @@ class ClassesViewController: UITableViewController {
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
         }
+    }
+    
+    @IBAction func unwindAddCourseView(segue: UIStoryboardSegue) {
+        print("sup")
     }
     
 }

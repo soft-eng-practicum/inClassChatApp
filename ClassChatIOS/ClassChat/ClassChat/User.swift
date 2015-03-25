@@ -8,25 +8,24 @@
 
 // jakemor.com/
 
-
-//IN THE FUTURE, USER WILL BE TAKEN DIRECTLY FROM DB AND PLACED INTO THE SHARED INSTANCE CurrentUser
-
 import Foundation
 
 class User {
     
+    var user_id: String!
     var name: String!
     var password: String!
     var lastName: String!
     var firstName: String!
-    var school_id: Int!
+    var school_id: String!
     
-    init(name: String, password: String, firstName: String, lastName: String, school_id: Int) {
+    init(name: String, password: String, firstName: String, lastName: String, school_id: String, user_id: String) {
         self.name = name
         self.password = password
         self.firstName = firstName
         self.lastName = lastName
         self.school_id = school_id
+        self.user_id = user_id
     }
     
     var CourseList: [Course] = [Course(title: "My Questions", description: "Questions I have asked")]
