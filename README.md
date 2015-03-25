@@ -1,6 +1,6 @@
 # class chat app
 
-
+Testing: the front end is in the works of being loaded to tester phones via apple's beta testing software. The API can be tested on postman or a similar service
 
 Hierarches - (4/5/2015)
 
