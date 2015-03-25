@@ -33,7 +33,6 @@
 				$pair = explode("=", $value); 
 				$_GET[$pair[0]] = $pair[1]; 
 			}
-			print_r($_GET);
 			$controller();
 		} else {
 			$notfound_view_controller(); 
