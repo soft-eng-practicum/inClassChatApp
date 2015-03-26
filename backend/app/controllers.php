@@ -7,47 +7,73 @@ include "helpers.php";
 // API Endpoints
 
 
-class testing extends PHPUnit_Framework_TestCase {
-	function createUser() {
-		if (_validate("createUser")) {
-			$user = new User();
+// class testing extends PHPUnit_Framework_TestCase {
+// 	function createUser() {
+// 		if (_validate("createUser")) {
+// 			$user = new User();
 			
-			if (sizeof($user->search("email", $_GET["email"])) == 0) {
-				$user->email = $_GET["email"];
-				$user->first_name = $_GET["first_name"];
-				$user->last_name = $_GET["last_name"];
-				$user->password = $_GET["password"];
-				$user->created_at = time();
-				$domain = substr(strrchr($_GET["email"], "@"), 1);
+// 			if (sizeof($user->search("email", $_GET["email"])) == 0) {
+// 				$user->email = $_GET["email"];
+// 				$user->first_name = $_GET["first_name"];
+// 				$user->last_name = $_GET["last_name"];
+// 				$user->password = $_GET["password"];
+// 				$user->created_at = time();
+// 				$domain = substr(strrchr($_GET["email"], "@"), 1);
 
-				if (trim($domain) == "" or isset($domain) == False) {
-					_error("Please use a valid email.");
-				} else {
-					$user->school_id = createSchool($domain); 
-					$user->save(); 
-					$user->get("email", $_GET["email"]);
+// 				if (trim($domain) == "" or isset($domain) == False) {
+// 					_error("Please use a valid email.");
+// 				} else {
+// 					$user->school_id = createSchool($domain); 
+// 					$user->save(); 
+// 					$user->get("email", $_GET["email"]);
 					
 
-					$this->assertInternalType("object", new User);
+// 					$this->assertInternalType("object", new User);
 					
-					_respond($user); 
-				}
+// 					_respond($user); 
+// 				}
 
 
-			} else {
-				_error("A user with that email already exists.");
-			}
-		}
-	}
-}
+// 			} else {
+// 				_error("A user with that email already exists.");
+// 			}
+// 		}
+// 	}
+// }
 
+
+// function createUser() {
+// 	$testing = new testing(); 
+// 	$testing->createUser(); 
+// }
 
 function createUser() {
+	if (_validate("createUser")) {
+		$user = new User();
+		
+		if (sizeof($user->search("email", $_GET["email"])) == 0) {
+			$user->email = $_GET["email"];
+			$user->first_name = $_GET["first_name"];
+			$user->last_name = $_GET["last_name"];
+			$user->password = $_GET["password"];
+			$user->created_at = time();
+			$domain = substr(strrchr($_GET["email"], "@"), 1);
 
-	$testing = new testing(); 
-	$testing->createUser(); 
+			if (trim($domain) == "" or isset($domain) == False) {
+				_error("Please use a valid email.");
+			} else {
+				$user->school_id = createSchool($domain); 
+				$user->save(); 
+				$user->get("email", $_GET["email"]);
+
+				_respond($user); 
+			}
 
 
+		} else {
+			_error("A user with that email already exists.");
+		}
+	}
 }
 
 function logIn() {
@@ -159,6 +185,19 @@ function getUserCourses() {
 		if (sizeof($course_ids) > 0) {
 			$course = new Course(); 
 			$courses = $course->getMultiple("id", $course_ids);
+
+			for ($i=0; $i < sizeof($courses); $i++) { 
+				$id = $courses[$i]["id"]; 
+				$time = $courses[$i]["created_at"];
+
+				$date = date("m/d/Y", $time); 
+
+				$enrollment = new Enrollment(); 
+				$num_ppl = sizeof($enrollment->search("course_id", $id));
+
+				//$courses[$i]["description"] = "{$num_ppl} enrolled. Created {$date}";
+				$courses[$i]["description"] = "Members: {$num_ppl}";
+			}
 
 			_respond($courses); 
 		} else {
