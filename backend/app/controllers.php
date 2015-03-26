@@ -6,32 +6,48 @@ include "helpers.php";
 
 // API Endpoints
 
-function createUser() {
-	if (_validate("createUser")) {
-		$user = new User();
-		
-		if (sizeof($user->search("email", $_GET["email"])) == 0) {
-			$user->email = $_GET["email"];
-			$user->first_name = $_GET["first_name"];
-			$user->last_name = $_GET["last_name"];
-			$user->password = $_GET["password"];
-			$user->created_at = time();
-			$domain = substr(strrchr($_GET["email"], "@"), 1);
 
-			if (trim($domain) == "" or isset($domain) == False) {
-				_error("Please use a valid email.");
+class testing extends PHPUnit_Framework_TestCase {
+	function createUser() {
+		if (_validate("createUser")) {
+			$user = new User();
+			
+			if (sizeof($user->search("email", $_GET["email"])) == 0) {
+				$user->email = $_GET["email"];
+				$user->first_name = $_GET["first_name"];
+				$user->last_name = $_GET["last_name"];
+				$user->password = $_GET["password"];
+				$user->created_at = time();
+				$domain = substr(strrchr($_GET["email"], "@"), 1);
+
+				if (trim($domain) == "" or isset($domain) == False) {
+					_error("Please use a valid email.");
+				} else {
+					$user->school_id = createSchool($domain); 
+					$user->save(); 
+					$user->get("email", $_GET["email"]);
+					
+
+					$this->assertInternalType("object", new User);
+					
+					_respond($user); 
+				}
+
+
 			} else {
-				$user->school_id = createSchool($domain); 
-				$user->save(); 
-				$user->get("email", $_GET["email"]);
-				_respond($user); 
+				_error("A user with that email already exists.");
 			}
-
-
-		} else {
-			_error("A user with that email already exists.");
 		}
 	}
+}
+
+
+function createUser() {
+
+	$testing = new testing(); 
+	$testing->createUser(); 
+
+
 }
 
 function logIn() {

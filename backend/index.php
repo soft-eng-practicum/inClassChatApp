@@ -12,9 +12,6 @@
 	require 'app/models.php';
 	require 'app/controllers.php';
 
-	 
-
-
 	if (isset($_GET['args']) && $_GET['args'] != "") {
 		$args = explode( '/', $_GET['args']);
 		if (function_exists($args[0]) && "_" != substr($args[0], 0,1)) {
