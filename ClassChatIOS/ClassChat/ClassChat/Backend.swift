@@ -16,6 +16,114 @@ class Backend {
         
     }
     
+    func getCourseQuestions(course_id: Int, onSuccess:(NSArray)->()) {
+        
+        func responseReceived(response: NSDictionary!) -> () {
+            dispatch_async(dispatch_get_main_queue()) {
+                var error: Bool! = response["error"] as Bool
+                
+                if (error!) {
+                    
+                    var errorMessage: String! = response["error_message"] as String
+                    
+                    let alert = UIAlertView()
+                    alert.title = "Whoops!"
+                    alert.message = errorMessage
+                    alert.addButtonWithTitle("Ok")
+                    alert.show()
+                    
+                } else {
+                    var data:NSArray! = response["data"] as NSArray
+                    onSuccess(data)
+                }
+            }
+        }
+        
+        request("http://jakemor.com/classchat_backend/getCourseQuestions/course_id=\(course_id)", callback: responseReceived)
+    }
+    
+    func getUserCourses(user_id: Int, onSuccess:(NSArray)->()) {
+        
+        func responseReceived(response: NSDictionary!) -> () {
+            dispatch_async(dispatch_get_main_queue()) {
+                var error: Bool! = response["error"] as Bool
+                
+                if (error!) {
+                    
+                    var errorMessage: String! = response["error_message"] as String
+                    
+                    let alert = UIAlertView()
+                    alert.title = "Whoops!"
+                    alert.message = errorMessage
+                    alert.addButtonWithTitle("Ok")
+                    alert.show()
+                    
+                } else {
+                    var data:NSArray! = response["data"] as NSArray
+                    onSuccess(data)
+                }
+            }
+        }
+        
+        request("http://jakemor.com/classchat_backend/getUserCourses/user_id=\(user_id)", callback: responseReceived)
+    }
+    
+    func  postQuestion(user_id: Int, course_id: Int, question: String, onSuccess:()->()) {
+        
+        func responseReceived(response: NSDictionary!) -> () {
+            dispatch_async(dispatch_get_main_queue()) {
+                var error: Bool! = response["error"] as Bool
+                
+                if (error!) {
+                    
+                    var errorMessage: String! = response["error_message"] as String
+                    
+                    let alert = UIAlertView()
+                    alert.title = "Whoops!"
+                    alert.message = errorMessage
+                    alert.addButtonWithTitle("Ok")
+                    alert.show()
+                    
+                } else {
+                    onSuccess()
+                }
+            }
+        }
+        
+        let encoded:String! = question.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())
+        
+        request("http://jakemor.com/classchat_backend/postQuestion/user_id=\(user_id)/course_id=\(course_id)/question=" + encoded, callback: responseReceived)
+        
+    }
+    
+    func  enrollUserInCourse(user_id: Int, course_name: String, onSuccess:(NSDictionary)->()) {
+        
+        func responseReceived(response: NSDictionary!) -> () {
+            dispatch_async(dispatch_get_main_queue()) {
+                var error: Bool! = response["error"] as Bool
+                
+                if (error!) {
+                    
+                    var errorMessage: String! = response["error_message"] as String
+                    
+                    let alert = UIAlertView()
+                    alert.title = "Whoops!"
+                    alert.message = errorMessage
+                    alert.addButtonWithTitle("Ok")
+                    alert.show()
+                
+                } else {
+                    var data: NSDictionary! = response["data"] as NSDictionary
+                    onSuccess(data)
+                }
+            }
+        }
+        
+        request("http://jakemor.com/classchat_backend/enrollUserInCourse/user_id=\(user_id)/course_name=" + course_name, callback: responseReceived)
+        
+    }
+    
+    
     func createUser(firstName:String, lastName:String, email:String, password:String, onSuccess:(NSDictionary)->()) {
         
         func responseReceived(response:NSDictionary!) -> () {

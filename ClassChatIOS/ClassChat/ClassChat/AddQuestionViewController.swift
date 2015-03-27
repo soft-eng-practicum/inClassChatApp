@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class AddQuestionViewController: UIViewController {
+class AddQuestionViewController: UIViewController, UITextFieldDelegate {
     
 
     
@@ -23,17 +23,32 @@ class AddQuestionViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    @IBAction func saveQuestion(sender: AnyObject) {
-        if (self.QuestionField.text.isEmpty) {
-            let alert = UIAlertView()
-            alert.title = "No Text"
-            alert.message = "Please type a question"
-            alert.addButtonWithTitle("Ok")
-            alert.show()
-        } else {
-            self.selectedCourse.questionList.append(Question(question: QuestionField.text))
-        }
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        
+        self.view.endEditing(true)
+        
     }
+    
+    func textFieldShouldReturn(textField: UITextField!) -> Bool {
+        
+        textField.resignFirstResponder()
+        
+        return true
+        
+    }
+    
+    @IBAction func saveQuestion(sender: AnyObject) {
+        
+        var backend: Backend = Backend()
+        
+        func onSuccess() {
+            performSegueWithIdentifier("unwindAddQuestionSegue", sender: self)
+        }
+        
+        backend.postQuestion(CurrentUser.sharedInstance.user.user_id, course_id: selectedCourse.course_id, question: QuestionField.text, onSuccess: onSuccess)
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

@@ -9,18 +9,30 @@
 import Foundation
 import UIKit
 
-class AddCommentViewController: UIViewController {
+class AddCommentViewController: UIViewController, UITextFieldDelegate{
     
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var commentField: UITextField!
-    
-    
     
     var selectedQuestion: Question!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        questionLabel.text = selectedQuestion.question
+        questionLabel.text = selectedQuestion.content
+    }
+    
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        
+        self.view.endEditing(true)
+        
+    }
+    
+    func textFieldShouldReturn(textField: UITextField!) -> Bool {
+        
+        textField.resignFirstResponder()
+        
+        return true
+        
     }
     
     @IBAction func saveComment(sender: AnyObject) {
