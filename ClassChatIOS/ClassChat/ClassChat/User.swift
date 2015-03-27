@@ -12,14 +12,14 @@ import Foundation
 
 class User {
     
-    var user_id: String!
+    var user_id: Int!
     var name: String!
     var password: String!
     var lastName: String!
     var firstName: String!
     var school_id: String!
     
-    init(name: String, password: String, firstName: String, lastName: String, school_id: String, user_id: String) {
+    init(name: String, password: String, firstName: String, lastName: String, school_id: String, user_id: Int) {
         self.name = name
         self.password = password
         self.firstName = firstName
@@ -28,7 +28,7 @@ class User {
         self.user_id = user_id
     }
     
-    var CourseList: [Course] = [Course(title: "My Questions", description: "Questions I have asked")]
+    var CourseList: [Course] = [] // = [Course(title: "My Questions", description: "Questions I have asked")]
     var myQuestions: [String] = []
     
     func add(newClass: Course) {

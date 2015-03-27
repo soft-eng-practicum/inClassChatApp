@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CreateUserViewController: UIViewController {
+class CreateUserViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var lastNameField: UITextField!
     @IBOutlet weak var firstNameField: UITextField!
@@ -21,6 +21,20 @@ class CreateUserViewController: UIViewController {
         super.viewDidLoad()
         self.warningLabel?.hidden = true
         // Do any additional setup after loading the view.
+    }
+    
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        
+        self.view.endEditing(true)
+        
+    }
+    
+    func textFieldShouldReturn(textField: UITextField!) -> Bool {
+        
+        textField.resignFirstResponder()
+        
+        return true
+        
     }
     
     override func didReceiveMemoryWarning() {

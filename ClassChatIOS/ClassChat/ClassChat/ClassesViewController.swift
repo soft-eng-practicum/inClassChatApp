@@ -14,9 +14,37 @@ class ClassesViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        ClassTableArray = CurrentUser.sharedInstance.user.CourseList
         
+        loadClassTable()
+        
+        var refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: Selector("loadClassTable"), forControlEvents: UIControlEvents.ValueChanged)
+        self.refreshControl = refreshControl
+    }
+    
+    func loadClassTable() {
+        
+        func populateTable(userCourses: NSArray)->() {
+            
+            CurrentUser.sharedInstance.user.CourseList = [Course]()
+            
+            for course in userCourses {
+                var course_id:Int! = course["id"] as Int
+                var course_name:String! = course["name"] as String
+                var description:String! = course["description"] as String
+                CurrentUser.sharedInstance.user.CourseList.append(Course(title: course_name, description: description, course_id: course_id))
+            }
+            
+            ClassTableArray = CurrentUser.sharedInstance.user.CourseList
+            
+            tableView.reloadData()
+            refreshControl?.endRefreshing()
+            
+        }
+        
+        var backend:Backend = Backend()
+        
+        backend.getUserCourses(CurrentUser.sharedInstance.user.user_id, onSuccess: populateTable)
     }
 
     override func didReceiveMemoryWarning() {
@@ -79,7 +107,10 @@ class ClassesViewController: UITableViewController {
     }
     
     @IBAction func unwindAddCourseView(segue: UIStoryboardSegue) {
-        print("sup")
+        ClassTableArray = CurrentUser.sharedInstance.user.CourseList
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            self.tableView.reloadData()
+        })
     }
     
 }

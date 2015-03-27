@@ -185,7 +185,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BGd-JS-Osi" kind="unwind" unwindAction="unwindAddQuestionView:" id="5p5-Oj-6hH"/>
+                                    <segue destination="BGd-JS-Osi" kind="unwind" identifier="unwindAddQuestionSegue" unwindAction="unwindAddQuestionView:" id="Sps-yt-T8K"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wYg-Il-hlX">
@@ -195,7 +195,6 @@
                                 </state>
                                 <connections>
                                     <action selector="saveQuestion:" destination="6Sb-BJ-Vdr" eventType="touchUpInside" id="wKT-xS-bIi"/>
-                                    <segue destination="BGd-JS-Osi" kind="unwind" unwindAction="unwindAddQuestionView:" id="4Oh-61-hNk"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -336,7 +335,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mG4-II-CZp">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="s@emory.edu" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mG4-II-CZp">
                                 <rect key="frame" x="252" y="145" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -361,7 +360,7 @@
                                     <segue destination="7ep-XB-DB9" kind="presentation" identifier="newUserSegue" id="ODg-Sh-yqF"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XuQ-Sk-EMP">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="s" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XuQ-Sk-EMP">
                                 <rect key="frame" x="252" y="218" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
