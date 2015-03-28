@@ -13,12 +13,45 @@ class DiscussionViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var commentTable: UITableView!
     var selectedQuestion: Question!
+    var refreshControl: UIRefreshControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         questionLabel.text = selectedQuestion.content
         self.commentTable.registerClass(UITableViewCell.self, forCellReuseIdentifier: "commentCell")
+        loadCommentTable()
+        var refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: Selector("loadCommentTable"), forControlEvents: UIControlEvents.ValueChanged)
+        commentTable.addSubview(refreshControl)
     }
+    
+    func loadCommentTable() {
+    
+        func onSuccess(questionAnswers: NSArray)->() {
+            
+            println(questionAnswers)
+            
+            selectedQuestion.commentList = [Comment]()
+    
+            for answer in questionAnswers {
+                
+                var answer:String! = answer["answer"] as String
+                var comment = Comment(text: answer)
+                selectedQuestion.commentList.append(comment)
+            }
+            
+            commentTable.reloadData()
+            refreshControl?.endRefreshing()
+            
+        }
+        
+        var backend:Backend = Backend()
+        
+        backend.getQuestionAnswers(selectedQuestion.id, onSuccess: onSuccess)
+        
+    
+    }
+    
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return selectedQuestion.commentList.count
@@ -30,10 +63,12 @@ class DiscussionViewController: UIViewController, UITableViewDelegate, UITableVi
         return cell
     }
     
-    @IBAction func unwindAddQuestionView(segue: UIStoryboardSegue) {
+    @IBAction func unwindAddCommentView(segue: UIStoryboardSegue) {
         if let ACV = segue.sourceViewController as? AddCommentViewController {
             self.selectedQuestion = ACV.selectedQuestion
         }
+        
+        
     }
     
     //selected cell

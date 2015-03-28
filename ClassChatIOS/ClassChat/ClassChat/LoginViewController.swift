@@ -59,8 +59,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        if (segue.identifier == "loginSegue") {
-            print(CurrentUser.sharedInstance.user.user_id)
-        }
+//        if (segue.identifier == "loginSegue") {
+//        }
     }
 }

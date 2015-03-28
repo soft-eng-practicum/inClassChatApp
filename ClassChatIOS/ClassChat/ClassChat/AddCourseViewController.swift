@@ -46,8 +46,6 @@ class AddCourseViewController: UIViewController, UITextFieldDelegate {
         
         func onSuccess(credentials:NSDictionary)->() {
             
-            print(credentials)
-            
             let course_id:Int! = credentials["course_id"] as Int
             
             course = Course(title: courseField.text, description: descriptionField.text, course_id: course_id)

@@ -16,6 +16,32 @@ class Backend {
         
     }
     
+    func getQuestionAnswers(question_id: Int, onSuccess:(NSArray)->()) {
+        
+        func responseReceived(response: NSDictionary!) -> () {
+            dispatch_async(dispatch_get_main_queue()) {
+                var error: Bool! = response["error"] as Bool
+                
+                if (error!) {
+                    
+                    var errorMessage: String! = response["error_message"] as String
+                    
+                    let alert = UIAlertView()
+                    alert.title = "Whoops!"
+                    alert.message = errorMessage
+                    alert.addButtonWithTitle("Ok")
+                    alert.show()
+                    
+                } else {
+                    var data:NSArray! = response["data"] as NSArray
+                    onSuccess(data)
+                }
+            }
+        }
+        
+        request("http://jakemor.com/classchat_backend/getQuestionAnswers/question_id=\(question_id)", callback: responseReceived)
+    }
+    
     func getCourseQuestions(course_id: Int, onSuccess:(NSArray)->()) {
         
         func responseReceived(response: NSDictionary!) -> () {
@@ -93,6 +119,35 @@ class Backend {
         let encoded:String! = question.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())
         
         request("http://jakemor.com/classchat_backend/postQuestion/user_id=\(user_id)/course_id=\(course_id)/question=" + encoded, callback: responseReceived)
+        
+    }
+    
+    
+    func  postAnswer(user_id: Int, question_id: Int, answer: String, onSuccess:()->()) {
+        
+        func responseReceived(response: NSDictionary!) -> () {
+            dispatch_async(dispatch_get_main_queue()) {
+                var error: Bool! = response["error"] as Bool
+                
+                if (error!) {
+                    
+                    var errorMessage: String! = response["error_message"] as String
+                    
+                    let alert = UIAlertView()
+                    alert.title = "Whoops!"
+                    alert.message = errorMessage
+                    alert.addButtonWithTitle("Ok")
+                    alert.show()
+                    
+                } else {
+                    onSuccess()
+                }
+            }
+        }
+        
+        let encoded:String! = answer.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())
+        
+        request("http://jakemor.com/classchat_backend/postAnswer/user_id=\(user_id)/question_id=\(question_id)/answer=" + encoded, callback: responseReceived)
         
     }
     

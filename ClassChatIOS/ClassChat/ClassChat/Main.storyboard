@@ -236,7 +236,6 @@
                                 </state>
                                 <connections>
                                     <action selector="saveComment:" destination="tMt-2h-un7" eventType="touchUpInside" id="ddH-Fc-NmZ"/>
-                                    <segue destination="dRO-gc-kI6" kind="unwind" unwindAction="unwindAddQuestionView:" id="9Fn-tc-73i"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="934-2V-YVp">
@@ -250,7 +249,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="dRO-gc-kI6" kind="unwind" unwindAction="unwindAddQuestionView:" id="Bc6-As-zLD"/>
+                                    <segue destination="dRO-gc-kI6" kind="unwind" identifier="unwindAddComment" unwindAction="unwindAddCommentView:" id="Zqn-mI-WEL"/>
                                 </connections>
                             </button>
                         </subviews>

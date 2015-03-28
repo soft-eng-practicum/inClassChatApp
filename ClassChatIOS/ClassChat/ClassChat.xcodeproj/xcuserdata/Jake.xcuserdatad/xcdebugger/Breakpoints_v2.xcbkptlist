@@ -154,11 +154,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ClassChat/AddCourseViewController.swift"
-            timestampString = "449095468.656084"
+            timestampString = "449259688.93069"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
             landmarkName = "onSuccess(_:)"
             landmarkType = "7">
          </BreakpointContent>

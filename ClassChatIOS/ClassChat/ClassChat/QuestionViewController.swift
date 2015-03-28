@@ -18,15 +18,14 @@ class QuestionViewController: UITableViewController, UITableViewDataSource {
         super.viewDidLoad()
         pageTitleItem.title = selectedCourse.title
         loadQuestionTable()
-        
+        var refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: Selector("loadQuestionTable"), forControlEvents: UIControlEvents.ValueChanged)
+        self.refreshControl = refreshControl
     }
     
     func loadQuestionTable() {
         
         func onSuccess(courseQuestions: NSArray)->() {
-            
-            
-            println(courseQuestions)
             
             selectedCourse.questionList = [Question]()
             
@@ -58,8 +57,6 @@ class QuestionViewController: UITableViewController, UITableViewDataSource {
         // Dispose of any resources that can be recreated.
     }
 
-    // MARK: - Table view data source
-
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return selectedCourse.questionList.count
     }
@@ -74,12 +71,9 @@ class QuestionViewController: UITableViewController, UITableViewDataSource {
         if let ADQ = segue.sourceViewController as? AddQuestionViewController {
             self.selectedCourse = ADQ.selectedCourse
         }
-        
-        
-        
+        loadQuestionTable()
     }
     
-    // MARK: - Navigation
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "addQuestionSegue") {

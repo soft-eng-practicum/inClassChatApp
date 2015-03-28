@@ -36,16 +36,12 @@ class AddCommentViewController: UIViewController, UITextFieldDelegate{
     }
     
     @IBAction func saveComment(sender: AnyObject) {
-        if (self.commentField.text.isEmpty) {
-            let alert = UIAlertView()
-            alert.title = "No Text"
-            alert.message = "Please type a question"
-            alert.addButtonWithTitle("Ok")
-            alert.show()
-        } else {
-            self.selectedQuestion.commentList.append(Comment(text: commentField.text))
-        }
+            var backend: Backend = Backend()
+            
+            func onSuccess() {
+                performSegueWithIdentifier("unwindAddComment", sender: self)
+            }
+            
+            backend.postQuestion(CurrentUser.sharedInstance.user.user_id, course_id: selectedQuestion.id, question: commentField.text, onSuccess: onSuccess)
     }
-    
-    
 }
