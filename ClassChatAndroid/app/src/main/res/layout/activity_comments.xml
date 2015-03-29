@@ -15,7 +15,7 @@
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:paddingBottom="0dp"
-        android:paddingTop="0dp"
+        android:paddingTop="5dp"
         android:paddingEnd="10dp"
         android:paddingStart="0dp"
         android:password="false"
@@ -30,4 +30,14 @@
         <!--android:layout_alignParentRight="true"-->
         <!--android:layout_alignParentEnd="true"-->
         <!--android:onClick="onDoneButtonClick" />-->
+    <!--<Button-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Delete"-->
+        <!--android:id="@+id/deleteButton"-->
+        <!--android:onClick="onDoneButtonClick"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_toLeftOf="@+id/doneButton"-->
+        <!--android:layout_toStartOf="@+id/doneButton"-->
+        <!--/>-->
 </RelativeLayout>
