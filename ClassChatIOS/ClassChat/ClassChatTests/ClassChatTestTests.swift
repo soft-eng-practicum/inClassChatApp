@@ -1,4 +1,4 @@
-//
+ //
 //  ClassChatTestTests.swift
 //  ClassChatTestTests
 //
@@ -8,19 +8,52 @@
 
 import UIKit
 import XCTest
+import ClassChat
 
-class ClassChatTestTests: XCTestCase {
+public class ClassChatTestTests: XCTestCase {
     
-    override func setUp() {
+    override public func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
-    override func tearDown() {
+    override public func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
-    
+    public func testViewCreateUser() {
+        let cu = CreateUserViewController()
+        XCTAssertNotNil(cu.view, "View did not load")
+    }
+    public func testViewAddCourse() {
+        let ac = AddCourseViewController()
+        XCTAssertNotNil(ac.view, "View did not load")
+    }
+    public func testViewAddQuestion() {
+        let aq = AddQuestionViewController()
+        XCTAssertNotNil(aq.view, "View did not load")
+    }
+    public func testViewAddComment() {
+        let ac2 = AddCommentViewController()
+        XCTAssertNotNil(ac2.view, "View did not load")
+    }
+    public func testViewLogin() {
+        let l = LoginViewController()
+        XCTAssertNotNil(l.view, "View did not load")
+    }
+    public func testViewClasses() {
+        let c = ClassesViewController()
+        XCTAssertNotNil(c.view, "View did not load")
+    }
+    public func testViewQuestion() {
+        let q = QuestionViewController()
+        XCTAssertNotNil(q.view, "View did not load")
+    }
+    public func testViewCDiscussion() {
+        let d = DiscussionViewController()
+        XCTAssertNotNil(d.view, "View did not load")
+    }
+  
     func testExample() {
         // This is an example of a functional test case.
         XCTAssert(true, "Pass")

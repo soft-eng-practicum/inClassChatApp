@@ -13,21 +13,44 @@ class QuestionViewController: UITableViewController, UITableViewDataSource {
     @IBOutlet weak var pageTitleItem: UINavigationItem!
     
     var selectedCourse: Course!
-    var pullRefresh: UIRefreshControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         pageTitleItem.title = selectedCourse.title
-        
-        self.pullRefresh = UIRefreshControl()
-        self.pullRefresh.addTarget(self, action: "refresh", forControlEvents: UIControlEvents.ValueChanged)
-        self.tableView.addSubview(pullRefresh)
+        loadQuestionTable()
         
     }
-
-    func refresh(sender: AnyObject) {
-        tableView.reloadData()
-        self.pullRefresh.endRefreshing()
+    
+    func loadQuestionTable() {
+        
+        func onSuccess(courseQuestions: NSArray)->() {
+            
+            
+            println(courseQuestions)
+            
+            selectedCourse.questionList = [Question]()
+            
+            for question in courseQuestions {
+                
+                var question_id:Int! = question["id"] as Int
+                var content:String! = question["content"] as String
+                var likes:Int! = question["likes"] as Int
+                var user_id:String! = question["user_id"] as String
+                
+                var question = Question(content: content, id: question_id, user_id: user_id.toInt()!, likes: likes)
+                
+                selectedCourse.questionList.append(question)
+            }
+            
+            tableView.reloadData()
+            refreshControl?.endRefreshing()
+            
+        }
+        
+        var backend:Backend = Backend()
+        
+        backend.getCourseQuestions(selectedCourse.course_id, onSuccess: onSuccess)
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -43,7 +66,7 @@ class QuestionViewController: UITableViewController, UITableViewDataSource {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("QuestionCell", forIndexPath: indexPath) as UITableViewCell
-        cell.textLabel?.text = selectedCourse.questionList[indexPath.row].question
+        cell.textLabel?.text = selectedCourse.questionList[indexPath.row].content
         return cell
     }
 
@@ -51,6 +74,9 @@ class QuestionViewController: UITableViewController, UITableViewDataSource {
         if let ADQ = segue.sourceViewController as? AddQuestionViewController {
             self.selectedCourse = ADQ.selectedCourse
         }
+        
+        
+        
     }
     
     // MARK: - Navigation

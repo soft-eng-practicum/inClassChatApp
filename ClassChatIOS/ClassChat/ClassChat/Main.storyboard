@@ -4,22 +4,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
-        <scene sceneID="jf4-0b-MIe">
-            <objects>
-                <navigationController id="2xu-8Z-8uU" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pVJ-dT-ixG">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="Cj2-CF-yRM" kind="relationship" relationship="rootViewController" id="QLY-sv-5pe"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qRI-oo-ioN" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="602" y="384"/>
-        </scene>
         <!--Add Class-->
         <scene sceneID="jOO-PJ-YnW">
             <objects>
@@ -42,21 +26,28 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8K1-30-Ofa">
+                                <rect key="frame" x="208" y="174" width="99" height="30"/>
+                                <state key="normal" title="Add Class">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addCoursePressed:" destination="Cj2-CF-yRM" eventType="touchUpInside" id="kPs-59-elm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ix-Qz-5SC">
+                                <rect key="frame" x="234" y="243" width="48" height="30"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="SA1-gq-9wT" kind="unwind" identifier="unwindAddCourse" unwindAction="unwindAddCourseView:" id="xyR-Fx-efQ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Add Class" id="RYR-8l-vBw">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="bhS-P6-Q3V">
-                            <connections>
-                                <segue destination="7s5-HZ-5Qu" kind="presentation" identifier="cancelAddClassSegue" id="ioF-2q-Uep"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="pPw-al-F1I">
-                            <connections>
-                                <segue destination="7s5-HZ-5Qu" kind="presentation" identifier="saveCourseSegue" id="O40-8g-3EL"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Add Class" id="RYR-8l-vBw"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="courseField" destination="iPa-tH-Md5" id="7d5-aW-FVI"/>
@@ -64,6 +55,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6hb-rb-Dd3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="SA1-gq-9wT" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1271" y="384"/>
         </scene>
@@ -113,7 +105,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="NKa-Va-lvS">
                             <connections>
-                                <segue destination="2xu-8Z-8uU" kind="presentation" identifier="addCourseSegue" modalPresentationStyle="overFullScreen" id="8ea-BE-OoR"/>
+                                <segue destination="Cj2-CF-yRM" kind="presentation" identifier="addCourseSegue" id="9kR-k2-CeN"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -193,7 +185,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BGd-JS-Osi" kind="unwind" unwindAction="unwindAddQuestionView:" id="5p5-Oj-6hH"/>
+                                    <segue destination="BGd-JS-Osi" kind="unwind" identifier="unwindAddQuestionSegue" unwindAction="unwindAddQuestionView:" id="Sps-yt-T8K"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wYg-Il-hlX">
@@ -203,7 +195,6 @@
                                 </state>
                                 <connections>
                                     <action selector="saveQuestion:" destination="6Sb-BJ-Vdr" eventType="touchUpInside" id="wKT-xS-bIi"/>
-                                    <segue destination="BGd-JS-Osi" kind="unwind" unwindAction="unwindAddQuestionView:" id="4Oh-61-hNk"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -239,7 +230,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wi5-q7-oDL">
-                                <rect key="frame" x="157" y="268" width="46" height="30"/>
+                                <rect key="frame" x="61" y="129" width="46" height="30"/>
                                 <state key="normal" title="Save">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -248,8 +239,13 @@
                                     <segue destination="dRO-gc-kI6" kind="unwind" unwindAction="unwindAddQuestionView:" id="9Fn-tc-73i"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="934-2V-YVp">
+                                <rect key="frame" x="132" y="187" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ha1-JS-IRV">
-                                <rect key="frame" x="144" y="354" width="72" height="30"/>
+                                <rect key="frame" x="35" y="187" width="72" height="30"/>
                                 <state key="normal" title="Cancel">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -257,11 +253,6 @@
                                     <segue destination="dRO-gc-kI6" kind="unwind" unwindAction="unwindAddQuestionView:" id="Bc6-As-zLD"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="934-2V-YVp">
-                                <rect key="frame" x="132" y="187" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -344,7 +335,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mG4-II-CZp">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="s@emory.edu" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mG4-II-CZp">
                                 <rect key="frame" x="252" y="145" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -356,7 +347,7 @@
                                     <color key="titleColor" red="0.0" green="0.61626233552631571" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="7s5-HZ-5Qu" kind="presentation" identifier="loginSegue" id="BvH-Wx-JUN"/>
+                                    <action selector="loginNow:" destination="0t7-BP-SQq" eventType="touchUpInside" id="J89-XU-qM6"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7gs-qY-JZ4">
@@ -369,7 +360,7 @@
                                     <segue destination="7ep-XB-DB9" kind="presentation" identifier="newUserSegue" id="ODg-Sh-yqF"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XuQ-Sk-EMP">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="s" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XuQ-Sk-EMP">
                                 <rect key="frame" x="252" y="218" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -381,6 +372,7 @@
                     <connections>
                         <outlet property="PasswordField" destination="XuQ-Sk-EMP" id="dD7-Xc-XFV"/>
                         <outlet property="UsernameField" destination="mG4-II-CZp" id="QzU-Xq-PYi"/>
+                        <segue destination="7s5-HZ-5Qu" kind="presentation" identifier="loginSegue" id="EHo-HL-dI3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KcO-to-7EA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -415,7 +407,7 @@
                         <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u03-Kb-PBS">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="School email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u03-Kb-PBS">
                                 <rect key="frame" x="182" y="160" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -426,17 +418,6 @@
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FMw-4l-Un6">
-                                <rect key="frame" x="135" y="377" width="203" height="30"/>
-                                <state key="normal" title="Create User">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="0t7-BP-SQq" kind="popoverPresentation" identifier="SaveAndDismiss" popoverAnchorView="FMw-4l-Un6" id="WMp-0M-3bf">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
-                                </connections>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password1" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SxH-i2-McK">
                                 <rect key="frame" x="182" y="234" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -447,13 +428,44 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T75-ak-b60">
+                                <rect key="frame" x="182" y="93" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ie0-mT-LH0">
+                                <rect key="frame" x="182" y="42" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FMw-4l-Un6">
+                                <rect key="frame" x="-19" y="131" width="203" height="30"/>
+                                <state key="normal" title="Create User">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="createUser:" destination="7ep-XB-DB9" eventType="touchUpInside" id="KG0-XG-Nv5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KXI-Fv-gd6">
+                                <rect key="frame" x="48" y="184" width="68" height="30"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="0t7-BP-SQq" kind="presentation" identifier="cancelNewUserSegue" id="JLP-m6-oWz"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="firstNameField" destination="ie0-mT-LH0" id="zF8-Uf-GHg"/>
+                        <outlet property="lastNameField" destination="T75-ak-b60" id="I4C-bH-Hha"/>
                         <outlet property="newPasswordField1" destination="SxH-i2-McK" id="dbu-Lq-8DI"/>
                         <outlet property="newPasswordField2" destination="7RD-O5-fvX" id="rwr-g5-DuX"/>
                         <outlet property="newUserNameField" destination="u03-Kb-PBS" id="JPi-Ob-nbk"/>
+                        <segue destination="0t7-BP-SQq" kind="presentation" identifier="SaveAndDismiss" id="0aG-uo-AZ7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tLs-xA-lo3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -463,6 +475,5 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="c5J-nB-O4M"/>
-        <segue reference="BvH-Wx-JUN"/>
     </inferredMetricsTieBreakers>
 </document>
