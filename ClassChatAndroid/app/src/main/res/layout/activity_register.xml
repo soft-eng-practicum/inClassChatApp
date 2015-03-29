@@ -17,6 +17,20 @@
         android:paddingRight="20dp" >
 
         <EditText
+            android:id="@+id/name"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="#FFFFFF"
+            android:hint="Username"
+            android:textColorHint="#888888"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:inputType="textCapWords"
+            android:textColor="#000000" />
+        <!--android:textColorHint="@color/input_register_hint" />-->
+
+        <EditText
             android:id="@+id/email"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -27,8 +41,8 @@
             android:inputType="textEmailAddress"
             android:padding="10dp"
             android:singleLine="true"
-            android:textColor="#000000" />
-            <!--android:textColorHint="@color/input_login_hint" />-->
+            android:textColor="#000000"/>
+        <!--android:textColorHint="@color/input_register_hint" />-->
 
         <EditText
             android:id="@+id/password"
@@ -41,35 +55,34 @@
             android:inputType="textPassword"
             android:padding="10dp"
             android:singleLine="true"
-            android:textColor="#000000" />
-           <!--<! android:textColorHint="@color/input_login_hint" />>-->
+            android:textColor="#000000"/>
+        <!--/ android:textColorHint="@color/input_register_hint" />-->
 
         <!-- Login Button -->
 
         <Button
-            android:id="@+id/btnLogin"
+            android:id="@+id/btnRegister"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dip"
-            android:background="#888888"
+            android:background="#ff1b27ea"
             android:text="Login"
             android:textColor="#FFFFFF"
-            android:onClick="checkLogin"/>
+            android:onClick="login"/>
 
         <!-- Link to Login Screen -->
 
         <Button
-            android:id="@+id/btnLinkToRegisterScreen"
+            android:id="@+id/btnLinkToLoginScreen"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dip"
             android:background="@null"
-            android:text="Register"
+            android:text="Link to Login"
             android:textAllCaps="false"
-            android:textColor="#FFFFFF"
+            android:textColor="#888888"
             android:textSize="15dp"
-            android:onClick="onRegisterClick"/>
+            android:onClick="backToLogin"/>
     </LinearLayout>
 
 </LinearLayout>
-<!-- From: file:/Users/Jack/Desktop/NEW/inClassChatApp/ClassChatAndroid/app/src/main/res/layout/activity_login.xml -->

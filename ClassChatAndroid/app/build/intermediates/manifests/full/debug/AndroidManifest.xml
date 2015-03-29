@@ -50,6 +50,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.TodoList.Questions" />
         </activity>
+        <activity
+            android:name="com.example.TodoList.Register"
+            android:label="@string/title_activity_register"
+            android:parentActivityName="com.example.TodoList.ClassChat" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.TodoList.ClassChat" />
+        </activity>
     </application>
 
 </manifest>
