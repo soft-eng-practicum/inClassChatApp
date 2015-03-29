@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="#000000"
@@ -22,6 +23,7 @@
             android:layout_marginBottom="10dp"
             android:background="#FFFFFF"
             android:hint="Email Address"
+            android:textColorHint="#888888"
             android:inputType="textEmailAddress"
             android:padding="10dp"
             android:singleLine="true"
@@ -35,10 +37,11 @@
             android:layout_marginBottom="10dp"
             android:background="#FFFFFF"
             android:hint="Password"
+            android:textColorHint="#888888"
             android:inputType="textPassword"
             android:padding="10dp"
             android:singleLine="true"
-            android:textColor="#888888" />
+            android:textColor="#000000" />
            <!--<! android:textColorHint="@color/input_login_hint" />>-->
 
         <!-- Login Button -->
@@ -65,7 +68,7 @@
             android:textAllCaps="false"
             android:textColor="#FFFFFF"
             android:textSize="15dp"
-            android:onClick="addLoginButton"/>
+            android:onClick="onRegisterClick"/>
     </LinearLayout>
 
 </LinearLayout>

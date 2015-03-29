@@ -21,7 +21,7 @@ import android.widget.Toast;
 
 public class ClassChat extends Activity {
     // LogCat tag
-//    private static final String TAG = RegisterActivity.class.getSimpleName();
+    private static final String TAG = Register.class.getSimpleName();
     private Button btnLogin;
     private Button btnLinkToRegister;
     private EditText inputEmail;
@@ -80,18 +80,21 @@ public class ClassChat extends Activity {
 //
 //            public void onClick(View view) {
 //                Intent i = new Intent(getApplicationContext(),
-//                       // RegisterActivity.class);
+//                        Register.class);
 //                startActivity(i);
 //                finish();
 //            }
 //       });
-//
-    }
 
+    }
+    public void onRegisterClick(View view){
+        Intent intent = new Intent(this, Register.class);/////////////////////////
+        startActivity(intent);
+    }
     /**
      * function to verify login details in mysql db
      * */
-    private void checkLogin(final String email, final String password) {
+    public void checkLogin(final String email, final String password) {
         // Tag used to cancel the request
         String tag_string_req = "req_login";
 
