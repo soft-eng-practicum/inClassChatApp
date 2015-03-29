@@ -1,1 +1,0 @@
-Everything is located in the android studio and will be exported here soon.
