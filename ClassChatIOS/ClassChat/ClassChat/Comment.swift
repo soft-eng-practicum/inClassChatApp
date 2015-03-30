@@ -10,11 +10,13 @@ import Foundation
 
 class Comment {
     
+    var user:String!
     var text: String!
     var points = 0
     
-    init(text: String) {
+    init(text: String, user: String) {
         self.text = text
+        self.user = user
     }
     
     func addPoint() {

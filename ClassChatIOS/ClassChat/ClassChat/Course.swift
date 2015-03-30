@@ -24,7 +24,7 @@ class Course {
     }
     
     func addQuestion(content: String, question_id: Int, user_id:Int, likes: Int) {
-        self.questionList.append(Question(content: content, id: question_id, user_id: user_id, likes: likes))
+        self.questionList.append(Question(content: content, id: question_id, user_id: user_id, likes: likes, last_updated_at: ""))
     }
     
     func removeQuestion(indexNumber: Int) {

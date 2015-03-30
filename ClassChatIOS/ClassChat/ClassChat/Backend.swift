@@ -151,6 +151,33 @@ class Backend {
         
     }
     
+    func dropUserFromCourse(user_id: Int, course_name: String, onSuccess:(NSDictionary)->()) {
+
+        func responseReceived(response: NSDictionary!) -> () {
+            dispatch_async(dispatch_get_main_queue()) {
+                var error: Bool! = response["error"] as Bool
+                
+                if (error!) {
+                    
+                    var errorMessage: String! = response["error_message"] as String
+                    
+                    let alert = UIAlertView()
+                    alert.title = "Whoops!"
+                    alert.message = errorMessage
+                    alert.addButtonWithTitle("Ok")
+                    alert.show()
+                    
+                } else {
+                    var data = ["hello":0]
+                    onSuccess(data)
+                }
+            }
+        }
+        
+        request("http://jakemor.com/classchat_backend/dropUserFromCourse/user_id=\(user_id)/course_name=" + course_name, callback: responseReceived)
+        
+    }
+    
     func  enrollUserInCourse(user_id: Int, course_name: String, onSuccess:(NSDictionary)->()) {
         
         func responseReceived(response: NSDictionary!) -> () {

@@ -16,13 +16,14 @@ class Question {
     var likes: Int!
     var id: Int!
     var user_id: Int!
-    var last_updated_at: Int!
+    var last_updated_at: String!
     
-    init(content: String, id: Int, user_id: Int, likes: Int) {
+    init(content: String, id: Int, user_id: Int, likes: Int, last_updated_at: String) {
         self.content = content
         self.likes = likes
         self.id = id
         self.user_id = user_id
+        self.last_updated_at = last_updated_at
     }
     
 }

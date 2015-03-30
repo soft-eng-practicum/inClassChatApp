@@ -15,12 +15,18 @@ class QuestionViewController: UITableViewController, UITableViewDataSource {
     var selectedCourse: Course!
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         pageTitleItem.title = selectedCourse.title
         loadQuestionTable()
         var refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: Selector("loadQuestionTable"), forControlEvents: UIControlEvents.ValueChanged)
         self.refreshControl = refreshControl
+        
+        tableView.estimatedRowHeight = 160
+        tableView.rowHeight = UITableViewAutomaticDimension
+        
+        self.tableView.reloadData()
     }
     
     func loadQuestionTable() {
@@ -35,12 +41,21 @@ class QuestionViewController: UITableViewController, UITableViewDataSource {
                 var content:String! = question["content"] as String
                 var likes:Int! = question["likes"] as Int
                 var user_id:String! = question["user_id"] as String
+                var seconds_raw:String! = question["created_at"] as String
                 
-                var question = Question(content: content, id: question_id, user_id: user_id.toInt()!, likes: likes)
+                var seconds:NSTimeInterval = (seconds_raw as NSString).doubleValue
+                var date = NSDate(timeIntervalSince1970: seconds)
+                
+                let formatter = NSDateFormatter()
+                formatter.dateStyle = NSDateFormatterStyle.MediumStyle
+                formatter.timeStyle = .ShortStyle
+                
+                let last_updated_at = formatter.stringFromDate(date)
+                
+                var question = Question(content: content, id: question_id, user_id: user_id.toInt()!, likes: likes, last_updated_at: last_updated_at)
                 
                 selectedCourse.questionList.append(question)
             }
-            
             tableView.reloadData()
             refreshControl?.endRefreshing()
             
@@ -56,7 +71,8 @@ class QuestionViewController: UITableViewController, UITableViewDataSource {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+   
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return selectedCourse.questionList.count
     }
@@ -64,6 +80,8 @@ class QuestionViewController: UITableViewController, UITableViewDataSource {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("QuestionCell", forIndexPath: indexPath) as UITableViewCell
         cell.textLabel?.text = selectedCourse.questionList[indexPath.row].content
+        cell.detailTextLabel?.text = "\(selectedCourse.questionList[indexPath.row].last_updated_at)"
+        cell.textLabel?.numberOfLines = 0
         return cell
     }
 

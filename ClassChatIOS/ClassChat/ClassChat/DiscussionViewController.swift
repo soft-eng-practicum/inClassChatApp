@@ -20,7 +20,6 @@ class DiscussionViewController: UIViewController, UITableViewDelegate, UITableVi
         questionLabel.text = selectedQuestion.content
         self.commentTable.registerClass(UITableViewCell.self, forCellReuseIdentifier: "commentCell")
         loadCommentTable()
-//        var refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: Selector("loadCommentTable"), forControlEvents: UIControlEvents.ValueChanged)
         commentTable.addSubview(refreshControl)
     }
@@ -32,10 +31,9 @@ class DiscussionViewController: UIViewController, UITableViewDelegate, UITableVi
             selectedQuestion.commentList = [Comment]()
     
             for answer in questionAnswers {
-                
-                
+                var user_name:String! = answer["user_name"] as String
                 var answer:String! = answer["content"] as String
-                var comment = Comment(text: answer)
+                var comment = Comment(text: answer, user:user_name)
                 selectedQuestion.commentList.append(comment)
             }
             self.commentTable.reloadData()
@@ -55,8 +53,10 @@ class DiscussionViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+       
         var cell: UITableViewCell = self.commentTable.dequeueReusableCellWithIdentifier("commentCell") as UITableViewCell
         cell.textLabel?.text = selectedQuestion.commentList[indexPath.row].text
+        cell.detailTextLabel?.text = selectedQuestion.commentList[indexPath.row].user
         return cell
     }
     
@@ -64,7 +64,7 @@ class DiscussionViewController: UIViewController, UITableViewDelegate, UITableVi
         if let ACV = segue.sourceViewController as? AddCommentViewController {
             self.selectedQuestion = ACV.selectedQuestion
         }
-        
+        loadCommentTable()
         
     }
     

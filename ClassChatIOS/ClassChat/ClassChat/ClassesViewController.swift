@@ -11,6 +11,7 @@ import UIKit
 class ClassesViewController: UITableViewController {
     
     var ClassTableArray = [Course]()
+    var backend:Backend = Backend()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +43,7 @@ class ClassesViewController: UITableViewController {
             
         }
         
-        var backend:Backend = Backend()
+        
         
         backend.getUserCourses(CurrentUser.sharedInstance.user.user_id, onSuccess: populateTable)
     }
@@ -93,12 +94,21 @@ class ClassesViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
         return true
+    }
+    
+    func deleteCourse(selectedCourse: Course) {
+        
+        func onSuccess(response:NSDictionary) {
+            println("deleted from server")
+        }
+        
+        backend.dropUserFromCourse(CurrentUser.sharedInstance.user.user_id, course_name: selectedCourse.title, onSuccess: onSuccess)
     }
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
+            deleteCourse(ClassTableArray[indexPath.row])
             ClassTableArray.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         } else if editingStyle == .Insert {
