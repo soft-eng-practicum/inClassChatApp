@@ -39,7 +39,12 @@ class User {
         return CourseList[index]
     }
     
-    func removeClassAtIndex(index: Int) {
-        CourseList.removeAtIndex(index)
+    func removeClassWithName(name: String) {
+        for (var i = 0; i < CourseList.count; i++) {
+            if (CourseList[i].title == name) {
+                CourseList.removeAtIndex(i)
+                return
+            }
+        }
     }
 }

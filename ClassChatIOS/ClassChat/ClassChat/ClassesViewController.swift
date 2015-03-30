@@ -109,7 +109,13 @@ class ClassesViewController: UITableViewController {
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             deleteCourse(ClassTableArray[indexPath.row])
+            CurrentUser.sharedInstance.user.removeClassWithName(ClassTableArray[indexPath.row].title)
             ClassTableArray.removeAtIndex(indexPath.row)
+            
+            
+            //TODO - remove user.courseList from index
+            
+            
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
