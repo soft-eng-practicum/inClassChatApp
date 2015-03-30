@@ -225,7 +225,7 @@ function dropUserFromCourse() {
 			_error("That course doesn't exist");
 		}
 
-		$course->get("id", $search[0]["id"]);
+		$course->get("id", $courses[0]["id"]);
 
 		$course_id = $course->id; 
 
@@ -235,7 +235,7 @@ function dropUserFromCourse() {
 		if (sizeof($search) == 0) {
 			_error("You aren't in that class!");
 		} else {
-			$enrollment->get("id", $search[0]->id);
+			$enrollment->get("id", $search[0]["id"]);
 			$enrollment->delete();
 			_respond("You successfully dropped {$course_name}.");
 		}
