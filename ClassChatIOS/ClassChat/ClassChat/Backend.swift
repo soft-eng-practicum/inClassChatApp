@@ -32,7 +32,7 @@ class Backend {
                     alert.addButtonWithTitle("Ok")
                     alert.show()
                     
-                } else {
+                } else {                    
                     var data:NSArray! = response["data"] as NSArray
                     onSuccess(data)
                 }
@@ -123,7 +123,7 @@ class Backend {
     }
     
     
-    func  postAnswer(user_id: Int, question_id: Int, answer: String, onSuccess:()->()) {
+    func postAnswer(user_id: Int, question_id: Int, answer: String, onSuccess:()->()) {
         
         func responseReceived(response: NSDictionary!) -> () {
             dispatch_async(dispatch_get_main_queue()) {
@@ -139,7 +139,7 @@ class Backend {
                     alert.addButtonWithTitle("Ok")
                     alert.show()
                     
-                } else {
+                } else {                    
                     onSuccess()
                 }
             }
@@ -236,10 +236,29 @@ class Backend {
         let task = NSURLSession.sharedSession().dataTaskWithURL(nsURL) {
             
             (data,response,error) in
-
+            
             var error:NSError?
             var response = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &error) as NSDictionary!
-            callback(response)
+            
+            let raw = NSString(data: data, encoding: NSUTF8StringEncoding)
+            
+            println("====RAW RESPONSE====")
+            println(raw)
+            println()
+            
+            if (response == nil) {
+                dispatch_async(dispatch_get_main_queue()) {
+                    let alert = UIAlertView()
+                    alert.title = "500"
+                    alert.message = "We've encountered an internal server error. Please try again in bit."
+                    alert.addButtonWithTitle("Ok")
+                    alert.show()
+                }
+            } else {
+                callback(response)
+            }
+            
+            
         }
         task.resume()
     }

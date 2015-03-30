@@ -13,14 +13,14 @@ class DiscussionViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var commentTable: UITableView!
     var selectedQuestion: Question!
-    var refreshControl: UIRefreshControl!
+    var refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         questionLabel.text = selectedQuestion.content
         self.commentTable.registerClass(UITableViewCell.self, forCellReuseIdentifier: "commentCell")
         loadCommentTable()
-        var refreshControl = UIRefreshControl()
+//        var refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: Selector("loadCommentTable"), forControlEvents: UIControlEvents.ValueChanged)
         commentTable.addSubview(refreshControl)
     }
@@ -29,20 +29,17 @@ class DiscussionViewController: UIViewController, UITableViewDelegate, UITableVi
     
         func onSuccess(questionAnswers: NSArray)->() {
             
-            println(questionAnswers)
-            
             selectedQuestion.commentList = [Comment]()
     
             for answer in questionAnswers {
                 
-                var answer:String! = answer["answer"] as String
+                
+                var answer:String! = answer["content"] as String
                 var comment = Comment(text: answer)
                 selectedQuestion.commentList.append(comment)
             }
-            
-            commentTable.reloadData()
-            refreshControl?.endRefreshing()
-            
+            self.commentTable.reloadData()
+            refreshControl.endRefreshing()
         }
         
         var backend:Backend = Backend()

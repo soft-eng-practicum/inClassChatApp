@@ -42,6 +42,6 @@ class AddCommentViewController: UIViewController, UITextFieldDelegate{
                 performSegueWithIdentifier("unwindAddComment", sender: self)
             }
             
-            backend.postQuestion(CurrentUser.sharedInstance.user.user_id, course_id: selectedQuestion.id, question: commentField.text, onSuccess: onSuccess)
+            backend.postAnswer(CurrentUser.sharedInstance.user.user_id, question_id: selectedQuestion.id, answer: commentField.text, onSuccess: onSuccess)
     }
 }
