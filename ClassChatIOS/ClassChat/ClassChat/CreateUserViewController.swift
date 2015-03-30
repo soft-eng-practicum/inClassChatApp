@@ -42,16 +42,26 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func createUser(sender: AnyObject) {
+    @IBAction func createUser(sender: UIButton) {
+        if (newPasswordField1.text != newPasswordField2.text) {
+            
+            var alert = UIAlertView()
+            alert.title = "Whoops!"
+            alert.message = "Passwords don't match"
+            alert.addButtonWithTitle("Ok")
+            alert.show()
+            
+        } else {
+            
+            var backend:Backend = Backend()
         
-        var backend:Backend = Backend()
-        
-        func onSuccess(credentials:NSDictionary) {
-            print(credentials)
-            performSegueWithIdentifier("SaveAndDismiss", sender: self)
-        }
+            func onSuccess(credentials:NSDictionary) {
+                print(credentials)
+                performSegueWithIdentifier("SaveAndDismiss", sender: self)
+            }
     
-        backend.createUser(firstNameField.text, lastName: lastNameField.text, email: newUserNameField.text, password: newPasswordField1.text, onSuccess: onSuccess)
+            backend.createUser(firstNameField.text, lastName: lastNameField.text, email: newUserNameField.text, password: newPasswordField1.text, onSuccess: onSuccess)
+        }
     }
 
     

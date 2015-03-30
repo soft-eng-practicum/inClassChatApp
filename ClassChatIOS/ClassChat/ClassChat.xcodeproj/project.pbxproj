@@ -12,6 +12,7 @@
 		237502ED1ABA1558001EB182 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237502EA1ABA1558001EB182 /* Comment.swift */; };
 		237502EE1ABA1558001EB182 /* DiscussionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237502EB1ABA1558001EB182 /* DiscussionViewController.swift */; };
 		237502EF1ABA1558001EB182 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237502EC1ABA1558001EB182 /* Question.swift */; };
+		23C462591AC9AF3A004D577F /* CreateUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C462581AC9AF3A004D577F /* CreateUserViewController.swift */; };
 		23EA52CE1AB8D84D00E14EEA /* AddCourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EA52BC1AB8D84D00E14EEA /* AddCourseViewController.swift */; };
 		23EA52CF1AB8D84D00E14EEA /* AddQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EA52BD1AB8D84D00E14EEA /* AddQuestionViewController.swift */; };
 		23EA52D01AB8D84D00E14EEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EA52BE1AB8D84D00E14EEA /* AppDelegate.swift */; };
@@ -19,7 +20,6 @@
 		23EA52D21AB8D84D00E14EEA /* ClassesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EA52C21AB8D84D00E14EEA /* ClassesViewController.swift */; };
 		23EA52D31AB8D84D00E14EEA /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EA52C31AB8D84D00E14EEA /* Course.swift */; };
 		23EA52D41AB8D84D00E14EEA /* CourseStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EA52C41AB8D84D00E14EEA /* CourseStore.swift */; };
-		23EA52D51AB8D84D00E14EEA /* CreateUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EA52C51AB8D84D00E14EEA /* CreateUserViewController.swift */; };
 		23EA52D61AB8D84D00E14EEA /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EA52C61AB8D84D00E14EEA /* CurrentUser.swift */; };
 		23EA52D71AB8D84D00E14EEA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23EA52C71AB8D84D00E14EEA /* Images.xcassets */; };
 		23EA52D81AB8D84D00E14EEA /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 23EA52C81AB8D84D00E14EEA /* Info.plist */; };
@@ -48,6 +48,7 @@
 		237502EA1ABA1558001EB182 /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		237502EB1ABA1558001EB182 /* DiscussionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscussionViewController.swift; sourceTree = "<group>"; };
 		237502EC1ABA1558001EB182 /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		23C462581AC9AF3A004D577F /* CreateUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateUserViewController.swift; sourceTree = "<group>"; };
 		23EA52971AB8D7A900E14EEA /* ClassChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClassChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23EA52AC1AB8D7AA00E14EEA /* ClassChatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClassChatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		23EA52BC1AB8D84D00E14EEA /* AddCourseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCourseViewController.swift; sourceTree = "<group>"; };
@@ -57,7 +58,6 @@
 		23EA52C21AB8D84D00E14EEA /* ClassesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassesViewController.swift; sourceTree = "<group>"; };
 		23EA52C31AB8D84D00E14EEA /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		23EA52C41AB8D84D00E14EEA /* CourseStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseStore.swift; sourceTree = "<group>"; };
-		23EA52C51AB8D84D00E14EEA /* CreateUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateUserViewController.swift; sourceTree = "<group>"; };
 		23EA52C61AB8D84D00E14EEA /* CurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
 		23EA52C71AB8D84D00E14EEA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		23EA52C81AB8D84D00E14EEA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -116,7 +116,7 @@
 				237502EC1ABA1558001EB182 /* Question.swift */,
 				237502EA1ABA1558001EB182 /* Comment.swift */,
 				23EA52C61AB8D84D00E14EEA /* CurrentUser.swift */,
-				23EA52C51AB8D84D00E14EEA /* CreateUserViewController.swift */,
+				23C462581AC9AF3A004D577F /* CreateUserViewController.swift */,
 				23EA52BC1AB8D84D00E14EEA /* AddCourseViewController.swift */,
 				23EA52BD1AB8D84D00E14EEA /* AddQuestionViewController.swift */,
 				235CC4041ABA7BF70066E882 /* AddCommentViewController.swift */,
@@ -261,9 +261,9 @@
 				235CC4051ABA7BF70066E882 /* AddCommentViewController.swift in Sources */,
 				23EA52D01AB8D84D00E14EEA /* AppDelegate.swift in Sources */,
 				23EA52CF1AB8D84D00E14EEA /* AddQuestionViewController.swift in Sources */,
-				23EA52D51AB8D84D00E14EEA /* CreateUserViewController.swift in Sources */,
 				23EA52D31AB8D84D00E14EEA /* Course.swift in Sources */,
 				23EA52DD1AB8D84D00E14EEA /* UserStore.swift in Sources */,
+				23C462591AC9AF3A004D577F /* CreateUserViewController.swift in Sources */,
 				23EA52DB1AB8D84D00E14EEA /* QuestionViewController.swift in Sources */,
 				237502ED1ABA1558001EB182 /* Comment.swift in Sources */,
 				23EA52CE1AB8D84D00E14EEA /* AddCourseViewController.swift in Sources */,

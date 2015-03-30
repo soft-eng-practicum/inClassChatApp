@@ -15,7 +15,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {

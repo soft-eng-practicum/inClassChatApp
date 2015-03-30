@@ -370,38 +370,51 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="s@emory.edu" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mG4-II-CZp">
-                                <rect key="frame" x="252" y="145" width="97" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="s@emory.edu" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mG4-II-CZp">
+                                <rect key="frame" x="16" y="127" width="568" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XPd-Se-yHp">
-                                <rect key="frame" x="138" y="145" width="68" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <state key="normal" title="Login &gt;">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XPd-Se-yHp">
+                                <rect key="frame" x="16" y="267" width="42" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Login">
                                     <color key="titleColor" red="0.0" green="0.61626233552631571" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="loginNow:" destination="0t7-BP-SQq" eventType="touchUpInside" id="J89-XU-qM6"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7gs-qY-JZ4">
-                                <rect key="frame" x="123" y="208" width="121" height="40"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <state key="normal" title="Create New User &gt;">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="s" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XuQ-Sk-EMP">
+                                <rect key="frame" x="16" y="188" width="568" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7gs-qY-JZ4">
+                                <rect key="frame" x="463" y="267" width="121" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Create New User">
+                                    <color key="titleColor" red="0.0" green="0.61626233549999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="7ep-XB-DB9" kind="presentation" identifier="newUserSegue" id="ODg-Sh-yqF"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="s" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XuQ-Sk-EMP">
-                                <rect key="frame" x="252" y="218" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XuQ-Sk-EMP" firstAttribute="top" secondItem="mG4-II-CZp" secondAttribute="bottom" constant="31" id="0tk-y3-8Sf"/>
+                            <constraint firstItem="XuQ-Sk-EMP" firstAttribute="leading" secondItem="Gfb-Ae-lqi" secondAttribute="leading" constant="16" id="88Q-0N-NoW"/>
+                            <constraint firstItem="7gs-qY-JZ4" firstAttribute="top" secondItem="XuQ-Sk-EMP" secondAttribute="bottom" constant="49" id="AbJ-zk-xWs"/>
+                            <constraint firstItem="mG4-II-CZp" firstAttribute="leading" secondItem="Gfb-Ae-lqi" secondAttribute="leading" constant="16" id="BhB-RT-xfY"/>
+                            <constraint firstItem="XPd-Se-yHp" firstAttribute="top" secondItem="XuQ-Sk-EMP" secondAttribute="bottom" constant="49" id="C3m-tK-L42"/>
+                            <constraint firstAttribute="trailing" secondItem="XuQ-Sk-EMP" secondAttribute="trailing" constant="16" id="Wue-oU-YTA"/>
+                            <constraint firstItem="XPd-Se-yHp" firstAttribute="leading" secondItem="Gfb-Ae-lqi" secondAttribute="leading" constant="16" id="ZJH-lr-73n"/>
+                            <constraint firstAttribute="bottom" secondItem="XuQ-Sk-EMP" secondAttribute="bottom" constant="500" id="iJv-Cd-FCN"/>
+                            <constraint firstAttribute="trailing" secondItem="mG4-II-CZp" secondAttribute="trailing" constant="16" id="qED-c3-Z3Z"/>
+                            <constraint firstAttribute="trailing" secondItem="7gs-qY-JZ4" secondAttribute="trailing" constant="16" id="wRH-GJ-63E"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Ene-nY-oDB"/>
                     <connections>
@@ -472,6 +485,9 @@
                                 <state key="normal" title="Create User">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="createUser:" destination="7ep-XB-DB9" eventType="touchUpInside" id="Pa8-Yc-jgw"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KXI-Fv-gd6">
                                 <rect key="frame" x="48" y="229" width="49" height="31"/>
