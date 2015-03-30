@@ -9,12 +9,20 @@
 import Foundation
 
 class Question {
-
-    var question: String!
-    var commentList = [Comment]()
     
-    init(question: String) {
-        self.question = question
+    
+    var content: String!
+    var commentList = [Comment]()
+    var likes: Int!
+    var id: Int!
+    var user_id: Int!
+    var last_updated_at: Int!
+    
+    init(content: String, id: Int, user_id: Int, likes: Int) {
+        self.content = content
+        self.likes = likes
+        self.id = id
+        self.user_id = user_id
     }
     
 }

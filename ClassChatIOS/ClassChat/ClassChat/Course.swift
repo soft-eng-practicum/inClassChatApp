@@ -13,16 +13,18 @@ class Course {
     
     var title: String!
     var description: String!
+    var course_id: Int!
     var questionList = [Question]()
     
-    init(title: String, description: String) {
+    init(title: String, description: String, course_id: Int) {
         self.title = title
         self.description = description
-        self.questionList = [Question(question: "General")]
+        self.questionList = [Question]()
+        self.course_id = course_id
     }
     
-    func addQuestion(questionName: String) {
-        self.questionList.append(Question(question: questionName))
+    func addQuestion(content: String, question_id: Int, user_id:Int, likes: Int) {
+        self.questionList.append(Question(content: content, id: question_id, user_id: user_id, likes: likes))
     }
     
     func removeQuestion(indexNumber: Int) {

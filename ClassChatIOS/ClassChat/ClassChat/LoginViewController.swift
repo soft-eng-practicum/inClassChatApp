@@ -8,13 +8,27 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var UsernameField: UITextField!
     @IBOutlet weak var PasswordField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+    }
+    
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        
+        self.view.endEditing(true)
+        
+    }
+    
+    func textFieldShouldReturn(textField: UITextField!) -> Bool {
+        
+        textField.resignFirstResponder()
+        
+        return true
         
     }
 
@@ -24,19 +38,16 @@ class LoginViewController: UIViewController {
     }
     
     func loggedIn(user:NSDictionary)->() {
-        
-        print(user)
-        
+
         let name:String! = user["email"] as String
         let firstName:String! = user["first_name"] as String
         let lastName:String! = user["last_name"] as String
-        let school_id: Int! = user["school_id"] as Int
-        
-        let newUser = User(name: name, password: name, firstName: firstName, lastName: lastName, school_id: school_id)
-        UserStore.sharedInstance.add(newUser)
-        
-        CurrentUser.sharedInstance.assignCurrentUser(newUser)        
+        let school_id:String! = user["school_id"] as String
+        let user_id:Int! = user["id"] as Int
+        let user = User(name: name, password: name, firstName: firstName, lastName: lastName, school_id: school_id, user_id: user_id)
+        CurrentUser.sharedInstance.assignCurrentUser(user)
         performSegueWithIdentifier("loginSegue", sender: self)
+        
     }
     
     @IBAction func loginNow(sender: AnyObject) {
@@ -49,8 +60,7 @@ class LoginViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if (segue.identifier == "loginSegue") {
-//            var i = UserStore.sharedInstance.findUserNameIndex(self.UsernameField.text)
-//            CurrentUser.sharedInstance.assignCurrentUser(UserStore.sharedInstance.get(i))
+            print(CurrentUser.sharedInstance.user.user_id)
         }
     }
 }

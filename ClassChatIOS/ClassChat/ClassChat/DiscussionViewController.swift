@@ -16,7 +16,7 @@ class DiscussionViewController: UIViewController, UITableViewDelegate, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        questionLabel.text = selectedQuestion.question
+        questionLabel.text = selectedQuestion.content
         self.commentTable.registerClass(UITableViewCell.self, forCellReuseIdentifier: "commentCell")
     }
     

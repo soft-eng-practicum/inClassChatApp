@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CreateUserViewController: UIViewController {
+class CreateUserViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var lastNameField: UITextField!
     @IBOutlet weak var firstNameField: UITextField!
@@ -16,12 +16,25 @@ class CreateUserViewController: UIViewController {
     @IBOutlet weak var newUserNameField: UITextField!
     @IBOutlet weak var newPasswordField1: UITextField!
     @IBOutlet weak var newPasswordField2: UITextField!
-    var flag = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.warningLabel?.hidden = true
         // Do any additional setup after loading the view.
+    }
+    
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        
+        self.view.endEditing(true)
+        
+    }
+    
+    func textFieldShouldReturn(textField: UITextField!) -> Bool {
+        
+        textField.resignFirstResponder()
+        
+        return true
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -43,9 +56,5 @@ class CreateUserViewController: UIViewController {
 
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        if (segue.identifier == "SaveAndDismiss") {
-            let newUser = User(name: newUserNameField.text, password: newPasswordField1.text, firstName: firstNameField.text, lastName: lastNameField.text)
-            UserStore.sharedInstance.add(newUser)
-        }
     }
 }
