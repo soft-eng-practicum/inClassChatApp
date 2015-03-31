@@ -207,7 +207,40 @@ function getUserCourses() {
 }
 
 function dropUserFromCourse() {
+	if (_validate("enrollUserInCourse")) {
+		
+		$course_name = $_GET["course_name"];
+		$user_id = $_GET["user_id"];
+		
+		$user = new User(); 
+		$user->get("id", $user_id);
 
+		$school_id = $user->school_id;
+		
+		// create course if doesn't exist
+		$course = new Course();
+		$courses = $course->match(["name" => $course_name, "school_id" => $school_id]);
+
+		if (sizeof($courses) == 0) {
+			_error("That course doesn't exist");
+		}
+
+		$course->get("id", $courses[0]["id"]);
+
+		$course_id = $course->id; 
+
+		$enrollment = new Enrollment(); 
+		$search = $enrollment->match(["course_id" => $course_id, "user_id" => $user_id]);
+
+		if (sizeof($search) == 0) {
+			_error("You aren't in that class!");
+		} else {
+			$enrollment->get("id", $search[0]["id"]);
+			$enrollment->delete();
+			_respond("You successfully dropped {$course_name}.");
+		}
+
+	}
 }
 
 function postQuestion() {
