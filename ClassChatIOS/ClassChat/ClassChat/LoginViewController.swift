@@ -10,12 +10,43 @@ import UIKit
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
 
+    @IBOutlet weak var buttonConstraint: NSLayoutConstraint!
+    
     @IBOutlet weak var UsernameField: UITextField!
     @IBOutlet weak var PasswordField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
+       NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
+        buttonConstraint.constant = 0
+//        UsernameField.becomeFirstResponder()
+        
     }
+    
+    func keyboardWillShow(sender: NSNotification) {
+        if let userInfo = sender.userInfo {
+            if let keyboardHeight = userInfo[UIKeyboardFrameEndUserInfoKey]?.CGRectValue().size.height {
+                buttonConstraint.constant = keyboardHeight
+                UIView.animateWithDuration(0.25, animations: { () -> Void in
+                    self.view.layoutIfNeeded()
+                })
+            }
+        }
+    }
+    
+    
+    func keyboardWillHide(sender: NSNotification) {
+        if let userInfo = sender.userInfo {
+            if let keyboardHeight = userInfo[UIKeyboardFrameEndUserInfoKey]?.CGRectValue().size.height {
+                buttonConstraint.constant = 0
+                UIView.animateWithDuration(0.25, animations: { () -> Void in
+                    self.view.layoutIfNeeded()
+                })
+            }
+        }
+    }
+    
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         
@@ -58,7 +89,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-//        if (segue.identifier == "loginSegue") {
-//        }
+
     }
 }

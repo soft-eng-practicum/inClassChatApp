@@ -10,6 +10,7 @@ import UIKit
 
 class CreateUserViewController: UIViewController, UITextFieldDelegate {
     
+    @IBOutlet weak var buttonConstraint: NSLayoutConstraint!
     @IBOutlet weak var lastNameField: UITextField!
     @IBOutlet weak var firstNameField: UITextField!
     @IBOutlet weak var warningLabel = UILabel()
@@ -20,7 +21,32 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.warningLabel?.hidden = true
-        // Do any additional setup after loading the view.
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
+        buttonConstraint.constant = 0
+        firstNameField.becomeFirstResponder()
+    }
+    
+    func keyboardWillShow(sender: NSNotification) {
+        if let userInfo = sender.userInfo {
+            if let keyboardHeight = userInfo[UIKeyboardFrameEndUserInfoKey]?.CGRectValue().size.height {
+                buttonConstraint.constant = keyboardHeight
+                UIView.animateWithDuration(0.25, animations: { () -> Void in
+                    self.view.layoutIfNeeded()
+                })
+            }
+        }
+    }
+    
+    func keyboardWillHide(sender: NSNotification) {
+        if let userInfo = sender.userInfo {
+            if let keyboardHeight = userInfo[UIKeyboardFrameEndUserInfoKey]?.CGRectValue().size.height {
+                buttonConstraint.constant = 0
+                UIView.animateWithDuration(0.25, animations: { () -> Void in
+                    self.view.layoutIfNeeded()
+                })
+            }
+        }
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
@@ -43,25 +69,27 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func createUser(sender: UIButton) {
-        if (newPasswordField1.text != newPasswordField2.text) {
-            
-            var alert = UIAlertView()
-            alert.title = "Whoops!"
-            alert.message = "Passwords don't match"
-            alert.addButtonWithTitle("Ok")
-            alert.show()
-            
-        } else {
-            
+        //UNCOMMENT IF YOU WANT PASSWORD CONFIRMATION
+        
+//        if (newPasswordField1.text != newPasswordField2.text) {
+//            
+//            var alert = UIAlertView()
+//            alert.title = "Whoops!"
+//            alert.message = "Passwords don't match"
+//            alert.addButtonWithTitle("Ok")
+//            alert.show()
+//            
+//        } else {
+        
             var backend:Backend = Backend()
         
             func onSuccess(credentials:NSDictionary) {
                 print(credentials)
                 performSegueWithIdentifier("SaveAndDismiss", sender: self)
             }
-    
-            backend.createUser(firstNameField.text, lastName: lastNameField.text, email: newUserNameField.text, password: newPasswordField1.text, onSuccess: onSuccess)
-        }
+        
+            backend.createUser(firstNameField.text, lastName: "temp", email: newUserNameField.text, password: newPasswordField1.text, onSuccess: onSuccess)
+//        }
     }
 
     

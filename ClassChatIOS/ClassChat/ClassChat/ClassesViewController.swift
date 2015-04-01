@@ -15,9 +15,7 @@ class ClassesViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         loadClassTable()
-        
         var refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: Selector("loadClassTable"), forControlEvents: UIControlEvents.ValueChanged)
         self.refreshControl = refreshControl
