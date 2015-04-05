@@ -64,17 +64,33 @@ class ClassesViewController: UITableViewController {
         return Cell
     }
     
+    @IBAction func logOut(sender: UIBarButtonItem) {
+        let alert = UIAlertView()
+        alert.delegate = self
+        alert.title = "Log Out"
+        alert.message = "Are you sure?"
+        alert.addButtonWithTitle("Yes")
+        alert.addButtonWithTitle("No")
+        alert.show()
+    }
+    
+    func alertView(View: UIAlertView!, clickedButtonAtIndex buttonIndex: Int){
+        
+        switch buttonIndex{
+            
+        case 0:
+            performSegueWithIdentifier("logoutSegue", sender: self);
+            break
+        default:
+            break;
+            //Some code here..
+            
+        }
+    }
+    
+    
     //Will eventually confirm with user if they want to log out
     override func shouldPerformSegueWithIdentifier(identifier: String!, sender: AnyObject!) -> Bool {
-        if (identifier == "logoutSegue") {
-            let alert = UIAlertView()
-            alert.delegate = self
-            alert.title = "Log Out"
-            alert.message = "Are you sure?"
-            alert.addButtonWithTitle("Yes")
-            alert.addButtonWithTitle("No")
-            alert.show()
-        }
         return true
     }
     
@@ -87,8 +103,9 @@ class ClassesViewController: UITableViewController {
         }
         
         if (segue.identifier == "logoutSegue") {
-            
+            CurrentUser.sharedInstance.logOutUser()
         }
+
     }
     
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {

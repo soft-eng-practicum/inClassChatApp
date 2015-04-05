@@ -31,4 +31,8 @@ class CurrentUser {
         return false
     }
     
+    func logOutUser() {
+        self.user = nil
+    }
+    
 }

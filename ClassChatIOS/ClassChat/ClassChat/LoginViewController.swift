@@ -84,6 +84,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         var backend:Backend = Backend()
         
+        if (UsernameField.text == "") {
+            UsernameField.becomeFirstResponder()
+            return
+        }
+        
+        if (PasswordField.text == "") {
+            PasswordField.becomeFirstResponder()
+            return
+        }
+    
         backend.login(UsernameField.text, password: PasswordField.text, onSuccess: loggedIn)
         
     }

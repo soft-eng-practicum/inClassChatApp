@@ -23,6 +23,7 @@ class AddCourseViewController: UIViewController, UITextFieldDelegate {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
         buttonConstraint.constant = 0
+        courseField.becomeFirstResponder()
     }
     
     func keyboardWillShow(sender: NSNotification) {

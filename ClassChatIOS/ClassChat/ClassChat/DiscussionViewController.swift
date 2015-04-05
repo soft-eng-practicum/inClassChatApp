@@ -53,8 +53,8 @@ class DiscussionViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-       
-        var cell: UITableViewCell = self.commentTable.dequeueReusableCellWithIdentifier("commentCell") as UITableViewCell
+
+        var cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "commentCell")
         cell.textLabel?.text = selectedQuestion.commentList[indexPath.row].text
         cell.detailTextLabel?.text = selectedQuestion.commentList[indexPath.row].user
         return cell
@@ -79,6 +79,5 @@ class DiscussionViewController: UIViewController, UITableViewDelegate, UITableVi
             DestinationViewController.selectedQuestion = self.selectedQuestion
         }
     }
-    
     
 }

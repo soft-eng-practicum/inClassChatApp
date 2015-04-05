@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		235CC4051ABA7BF70066E882 /* AddCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235CC4041ABA7BF70066E882 /* AddCommentViewController.swift */; };
+		2318C1B31ACD9FCD00F50D98 /* AddQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2318C1B21ACD9FCD00F50D98 /* AddQuestionViewController.swift */; };
+		2318C1B51ACDB61300F50D98 /* AddCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2318C1B41ACDB61300F50D98 /* AddCommentViewController.swift */; };
 		235CC4071ABA8D8F0066E882 /* Backend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235CC4061ABA8D8F0066E882 /* Backend.swift */; };
 		237502ED1ABA1558001EB182 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237502EA1ABA1558001EB182 /* Comment.swift */; };
 		237502EE1ABA1558001EB182 /* DiscussionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237502EB1ABA1558001EB182 /* DiscussionViewController.swift */; };
 		237502EF1ABA1558001EB182 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237502EC1ABA1558001EB182 /* Question.swift */; };
 		23C462591AC9AF3A004D577F /* CreateUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C462581AC9AF3A004D577F /* CreateUserViewController.swift */; };
 		23EA52CE1AB8D84D00E14EEA /* AddCourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EA52BC1AB8D84D00E14EEA /* AddCourseViewController.swift */; };
-		23EA52CF1AB8D84D00E14EEA /* AddQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EA52BD1AB8D84D00E14EEA /* AddQuestionViewController.swift */; };
 		23EA52D01AB8D84D00E14EEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EA52BE1AB8D84D00E14EEA /* AppDelegate.swift */; };
 		23EA52D11AB8D84D00E14EEA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23EA52C01AB8D84D00E14EEA /* LaunchScreen.xib */; };
 		23EA52D21AB8D84D00E14EEA /* ClassesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EA52C21AB8D84D00E14EEA /* ClassesViewController.swift */; };
@@ -43,7 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		235CC4041ABA7BF70066E882 /* AddCommentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCommentViewController.swift; sourceTree = "<group>"; };
+		2318C1B21ACD9FCD00F50D98 /* AddQuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddQuestionViewController.swift; sourceTree = "<group>"; };
+		2318C1B41ACDB61300F50D98 /* AddCommentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCommentViewController.swift; sourceTree = "<group>"; };
 		235CC4061ABA8D8F0066E882 /* Backend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Backend.swift; sourceTree = "<group>"; };
 		237502EA1ABA1558001EB182 /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		237502EB1ABA1558001EB182 /* DiscussionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscussionViewController.swift; sourceTree = "<group>"; };
@@ -52,7 +53,6 @@
 		23EA52971AB8D7A900E14EEA /* ClassChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClassChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23EA52AC1AB8D7AA00E14EEA /* ClassChatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClassChatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		23EA52BC1AB8D84D00E14EEA /* AddCourseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCourseViewController.swift; sourceTree = "<group>"; };
-		23EA52BD1AB8D84D00E14EEA /* AddQuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddQuestionViewController.swift; sourceTree = "<group>"; };
 		23EA52BE1AB8D84D00E14EEA /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23EA52C11AB8D84D00E14EEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		23EA52C21AB8D84D00E14EEA /* ClassesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassesViewController.swift; sourceTree = "<group>"; };
@@ -66,7 +66,7 @@
 		23EA52CB1AB8D84D00E14EEA /* QuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		23EA52CC1AB8D84D00E14EEA /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		23EA52CD1AB8D84D00E14EEA /* UserStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
-		23EA52DE1AB8D85600E14EEA /* ClassChatTestTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassChatTestTests.swift; sourceTree = "<group>"; };
+		23EA52DE1AB8D85600E14EEA /* ClassChatTestTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClassChatTestTests.swift; path = ClassChatTests/ClassChatTestTests.swift; sourceTree = SOURCE_ROOT; };
 		23EA52DF1AB8D85600E14EEA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -118,8 +118,8 @@
 				23EA52C61AB8D84D00E14EEA /* CurrentUser.swift */,
 				23C462581AC9AF3A004D577F /* CreateUserViewController.swift */,
 				23EA52BC1AB8D84D00E14EEA /* AddCourseViewController.swift */,
-				23EA52BD1AB8D84D00E14EEA /* AddQuestionViewController.swift */,
-				235CC4041ABA7BF70066E882 /* AddCommentViewController.swift */,
+				2318C1B21ACD9FCD00F50D98 /* AddQuestionViewController.swift */,
+				2318C1B41ACDB61300F50D98 /* AddCommentViewController.swift */,
 				23EA52C91AB8D84D00E14EEA /* LoginViewController.swift */,
 				23EA52C21AB8D84D00E14EEA /* ClassesViewController.swift */,
 				23EA52CB1AB8D84D00E14EEA /* QuestionViewController.swift */,
@@ -137,8 +137,8 @@
 		23EA52AF1AB8D7AA00E14EEA /* ClassChatTests */ = {
 			isa = PBXGroup;
 			children = (
-				23EA52DE1AB8D85600E14EEA /* ClassChatTestTests.swift */,
 				23EA52DF1AB8D85600E14EEA /* Info.plist */,
+				23EA52DE1AB8D85600E14EEA /* ClassChatTestTests.swift */,
 			);
 			path = ClassChatTests;
 			sourceTree = "<group>";
@@ -259,9 +259,8 @@
 				23EA52D41AB8D84D00E14EEA /* CourseStore.swift in Sources */,
 				237502EE1ABA1558001EB182 /* DiscussionViewController.swift in Sources */,
 				235CC4071ABA8D8F0066E882 /* Backend.swift in Sources */,
-				235CC4051ABA7BF70066E882 /* AddCommentViewController.swift in Sources */,
 				23EA52D01AB8D84D00E14EEA /* AppDelegate.swift in Sources */,
-				23EA52CF1AB8D84D00E14EEA /* AddQuestionViewController.swift in Sources */,
+				2318C1B51ACDB61300F50D98 /* AddCommentViewController.swift in Sources */,
 				23EA52D31AB8D84D00E14EEA /* Course.swift in Sources */,
 				23EA52DD1AB8D84D00E14EEA /* UserStore.swift in Sources */,
 				23C462591AC9AF3A004D577F /* CreateUserViewController.swift in Sources */,
@@ -271,6 +270,7 @@
 				23EA52D61AB8D84D00E14EEA /* CurrentUser.swift in Sources */,
 				23EA52D21AB8D84D00E14EEA /* ClassesViewController.swift in Sources */,
 				23EA52DC1AB8D84D00E14EEA /* User.swift in Sources */,
+				2318C1B31ACD9FCD00F50D98 /* AddQuestionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

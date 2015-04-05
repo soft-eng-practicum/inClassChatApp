@@ -69,17 +69,6 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func createUser(sender: UIButton) {
-        //UNCOMMENT IF YOU WANT PASSWORD CONFIRMATION
-        
-//        if (newPasswordField1.text != newPasswordField2.text) {
-//            
-//            var alert = UIAlertView()
-//            alert.title = "Whoops!"
-//            alert.message = "Passwords don't match"
-//            alert.addButtonWithTitle("Ok")
-//            alert.show()
-//            
-//        } else {
         
             var backend:Backend = Backend()
         

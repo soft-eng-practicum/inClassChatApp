@@ -277,7 +277,7 @@ class Backend {
                 dispatch_async(dispatch_get_main_queue()) {
                     let alert = UIAlertView()
                     alert.title = "500"
-                    alert.message = "We've encountered an internal server error. Please try again in bit."
+                    alert.message = "Unable to connect to server"
                     alert.addButtonWithTitle("Ok")
                     alert.show()
                 }

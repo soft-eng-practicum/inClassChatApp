@@ -20,6 +20,17 @@ class ClassChatTestTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
+
+//    TODO: finish unit tests
+    
+//    func testUIAlertViewShowsAfterViewLoads() {
+//        class FakeAlertView: UIAlertView {
+//            var showWasCalled = false
+//            private override func show() {
+//                showWasCalled = true
+//            }
+//        }
+//    }
     
     func testExample() {
         // This is an example of a functional test case.
