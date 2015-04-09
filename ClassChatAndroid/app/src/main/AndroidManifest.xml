@@ -8,20 +8,25 @@
         android:minSdkVersion="11"
         android:targetSdkVersion="19" />
 
-    <android:uses-permission
-        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-        android:maxSdkVersion="18" />
-    <android:uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <android:uses-permission
-        android:name="android.permission.READ_EXTERNAL_STORAGE"
-        android:maxSdkVersion="18" />
+    <!--<android:uses-permission-->
+        <!--android:name="android.permission.WRITE_EXTERNAL_STORAGE"-->
+        <!--android:maxSdkVersion="18" />-->
+    <!--<android:uses-permission android:name="android.permission.READ_PHONE_STATE" />-->
+    <!--<android:uses-permission-->
+        <!--android:name="android.permission.READ_EXTERNAL_STORAGE"-->
+        <!--android:maxSdkVersion="18" />-->
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:icon="@drawable/freeiconmaker_0"
         android:label="ClassChat"
         android:title="ClassChat" >
+
+        <!-- android:debuggable="false" -->
+        >
         <activity
-            android:name=".ClassChat"
+            android:name="com.example.CC.ClassChat"
             android:label="ClassChat" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,33 +35,33 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Classes"
+            android:name="com.example.CC.Classes"
             android:label="Classes"
-            android:parentActivityName=".ClassChat" >
+            android:parentActivityName="com.example.CC.ClassChat" >
         </activity>
         <activity
-            android:name=".Questions"
+            android:name="com.example.CC.Questions"
             android:label="@string/title_activity_questions"
-            android:parentActivityName=".Classes" >
+            android:parentActivityName="com.example.CC.Classes" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Classes" />
+                android:value="com.example.CC.Classes" />
         </activity>
         <activity
-            android:name=".Comments"
+            android:name="com.example.CC.Comments"
             android:label="@string/title_activity_comments"
-            android:parentActivityName=".Questions" >
+            android:parentActivityName="com.example.CC.Questions" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.TodoList.Questions" />
+                android:value="com.example.CC.Questions" />
         </activity>
         <activity
-            android:name=".Register"
+            android:name="com.example.CC.Register"
             android:label="@string/title_activity_register"
-            android:parentActivityName=".ClassChat" >
+            android:parentActivityName="com.example.CC.ClassChat" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.TodoList.ClassChat" />
+                android:value="com.example.CC.ClassChat" />
         </activity>
     </application>
 

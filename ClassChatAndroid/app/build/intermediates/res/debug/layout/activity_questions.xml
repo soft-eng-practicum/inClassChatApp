@@ -7,7 +7,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Question"
+        android:text="Question"
         android:id="@+id/taskTextView"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
@@ -17,8 +17,6 @@
         android:layout_alignBottom="@+id/doneButton"
         android:gravity="center_vertical"
         android:textColor="#FFFFFF"
-        android:paddingEnd="0dp"
-        android:paddingStart="0dp"
         android:paddingLeft="10dp"
         android:paddingRight="10dp" />
     <Button
@@ -29,7 +27,9 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:onClick="onChatButton" />
+        android:onClick="onChatButton"
+        android:background="#01bba4"
+        android:layout_margin="5dp" />
     <!--<Button-->
         <!--android:layout_width="wrap_content"-->
         <!--android:layout_height="wrap_content"-->
@@ -41,4 +41,4 @@
         <!--android:layout_toStartOf="@+id/doneButton"-->
         <!--/>-->
 </RelativeLayout>
-<!-- From: file:/Users/Jack/Desktop/NEW/inClassChatApp/ClassChatAndroid/app/src/main/res/layout/activity_questions.xml -->
+<!-- From: file:/Users/Jack/Desktop/Github/inClassChatApp/ClassChatAndroid/app/src/main/res/layout/activity_questions.xml -->

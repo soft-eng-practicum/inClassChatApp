@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/Jack/Desktop/Github/inClassChatApp/ClassChatAndroid/app/libs/commons-io-2.4.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="b1b6ea3b7e4aa4f492509a4952029cd8e48019ad">
+        <dex dex="/Users/Jack/Desktop/Github/inClassChatApp/ClassChatAndroid/app/build/intermediates/pre-dexed/debug/commons-io-2.4-ef5d4e0705c212fda3943d7d3e91f7e22d93a436.jar" />
+    </item>
+    <item
+        jar="/Users/Jack/Desktop/Github/inClassChatApp/ClassChatAndroid/app/libs/library-1.0.15 (1).jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="9093a362d18c5f81f58e49d86dece57d9b6e1cb7">
+        <dex dex="/Users/Jack/Desktop/Github/inClassChatApp/ClassChatAndroid/app/build/intermediates/pre-dexed/debug/library-1.0.15 (1)-0b01fa83a32d21ed5489220f3681a05ace2778bc.jar" />
+    </item>
+
+</items>
