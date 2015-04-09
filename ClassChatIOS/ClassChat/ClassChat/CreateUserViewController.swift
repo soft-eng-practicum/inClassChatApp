@@ -73,12 +73,10 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate {
             var backend:Backend = Backend()
         
             func onSuccess(credentials:NSDictionary) {
-                print(credentials)
                 performSegueWithIdentifier("SaveAndDismiss", sender: self)
             }
         
-            backend.createUser(firstNameField.text, lastName: "temp", email: newUserNameField.text, password: newPasswordField1.text, onSuccess: onSuccess)
-//        }
+            backend.createUser(firstNameField.text, DoNotUse: "temp", email: newUserNameField.text, password: newPasswordField1.text, onSuccess: onSuccess)
     }
 
     

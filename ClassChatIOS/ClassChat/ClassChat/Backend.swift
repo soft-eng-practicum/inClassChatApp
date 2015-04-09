@@ -206,7 +206,7 @@ class Backend {
     }
     
     
-    func createUser(firstName:String, lastName:String, email:String, password:String, onSuccess:(NSDictionary)->()) {
+    func createUser(fullName:String, DoNotUse:String, email:String, password:String, onSuccess:(NSDictionary)->()) {
         
         func responseReceived(response:NSDictionary!) -> () {
             dispatch_async(dispatch_get_main_queue()) {
@@ -228,6 +228,15 @@ class Backend {
             }
         }
         
+        var fullNameArray = split(fullName) {$0 == " "}
+        var firstName = ""
+        if (fullNameArray.count == 1) {
+            firstName = fullNameArray[0]
+        }
+        var lastName = ""
+        if (fullNameArray.count > 1) {
+            lastName = fullNameArray[1]
+        }
         request("http://jakemor.com/classchat_backend/createUser/email=" + email + "/first_name=" + firstName + "/last_name=" + lastName + "/password=" + password, callback: responseReceived)
     }
     
