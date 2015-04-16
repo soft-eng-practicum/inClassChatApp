@@ -13,15 +13,16 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:textSize="20dp"
-            android:layout_toLeftOf="@+id/doneButton"
-            android:layout_alignBottom="@+id/doneButton"
+        android:layout_alignBottom="@+id/doneButton"
             android:gravity="center_vertical"
             android:textColor="#FFFFFF"
         android:paddingEnd="0dp"
         android:paddingStart="0dp"
         android:password="false"
         android:paddingLeft="10dp"
-        android:paddingRight="10dp" />
+        android:paddingRight="10dp"
+        android:layout_toLeftOf="@+id/deleteButton"
+        android:layout_toStartOf="@+id/deleteButton" />
     <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

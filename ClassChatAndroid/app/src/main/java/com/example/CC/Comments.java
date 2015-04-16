@@ -2,35 +2,56 @@ package com.example.CC;
 
 import android.app.AlertDialog;
 import android.app.ListActivity;
-import android.content.ContentValues;
 import android.content.DialogInterface;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.*;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.ListAdapter;
 
-import com.example.CC.db.CommentContract;
-import com.example.CC.db.CommentDBHelper;
 import com.example.TodoList.R;
+
+import org.apache.commons.io.IOUtils;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ArrayList;
 
 public class Comments extends ListActivity {
     private ListAdapter listAdapter;
-    private CommentDBHelper helper;
-
-    //@Override
-    public void sendMessage() {
-
-    }
+    public int QuestionID;
+    public int UserID;
+    public ArrayList<Comment> commentList = new ArrayList<Comment>();
+    private static final String TAG = Comments.class.getSimpleName();
+    public String[] commentNameList;
+    public String[] userNameList;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getActionBar().setDisplayHomeAsUpEnabled(false);
         setContentView(R.layout.main);
+        Intent intent = getIntent();
+        QuestionID = intent.getIntExtra("questionID",0);
+        UserID = intent.getIntExtra("id",0);
         updateUI();
     }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+
+    }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -50,19 +71,42 @@ public class Comments extends ListActivity {
                 builder.setPositiveButton("Add", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        String task = inputField.getText().toString();
+                        final String newComment = inputField.getText().toString();
+                        Thread x =new Thread()
+                        {
+                            public void run()
+                            {
+                                HttpURLConnection connection = null;
+                                try{
+                                    URL myUrl = new URL("http://jakemor.com/classchat_backend/postAnswer/user_id="+ UserID + "/question_id=" + QuestionID +"/answer=" + newComment);
+                                    connection = (HttpURLConnection)myUrl.openConnection();
+                                    InputStream iStream = connection.getInputStream();
+                                    final String response = IOUtils.toString(iStream);
+                                    Log.i("myTag", response);
+                                }
+                                catch (MalformedURLException ex){
+                                    Log.e(TAG, "Invalid URL Hommie", ex);
+                                }
+                                catch (IOException ex){
+                                    Log.e(TAG, "IO/Connection Hommie", ex);
+                                }
+                                finally{
+                                    connection.disconnect();
+                                    if(connection != null){
+                                        connection.disconnect();
+                                    }
+                                }
+                            }
+                        };//
 
-                        helper = new CommentDBHelper(Comments.this);
-                        SQLiteDatabase db = helper.getWritableDatabase();
-                        ContentValues values = new ContentValues();
+                        x.start();
+                        try{x.join();}
+                        catch(InterruptedException e){Log.e(TAG, "Thread interupt Hommie", e);}
 
-                        values.clear();
-                        values.put(CommentContract.Columns.TASK, task);
-
-                        db.insertWithOnConflict(CommentContract.TABLE, null, values, SQLiteDatabase.CONFLICT_IGNORE);
                         updateUI();
                     }
                 });
+
 
                 builder.setNegativeButton("Cancel", null);
 
@@ -75,39 +119,78 @@ public class Comments extends ListActivity {
     }
 
     private void updateUI() {
-        helper = new CommentDBHelper(Comments.this);
-        SQLiteDatabase sqlDB = helper.getReadableDatabase();
-        Cursor cursor = sqlDB.query(CommentContract.TABLE,
-                new String[]{CommentContract.Columns._ID, CommentContract.Columns.TASK},
-                null, null, null, null, null);
+        Thread x =new Thread()
+        {
+            public void run()
+            {
 
-        listAdapter = new SimpleCursorAdapter(
-                this,
-                R.layout.activity_comments,
-                cursor,
-                new String[]{CommentContract.Columns.TASK},
-                new int[]{R.id.taskTextView},
-                0
-        );
+                HttpURLConnection connection = null;
+                try{
+                    URL myUrl = new URL("http://jakemor.com/classchat_backend/getQuestionAnswers/question_id=" + QuestionID);
+                    connection = (HttpURLConnection)myUrl.openConnection();
+                    InputStream iStream = connection.getInputStream();
+                    final String response = IOUtils.toString(iStream);
 
-        this.setListAdapter(listAdapter);
-    }
+                    try{
+                        JSONObject root = new JSONObject(response);
+                        JSONArray data = root.getJSONArray("data");
+//                        Log.d("Comment DATA:", data.toString());
+                        String contentX;
+                        String user_nameX;
+                        int createdatX;
+                        int userIDX;
+                        int questionIDX;
+                        int likesX;
+                        int idX;
 
-    public void onDoneButtonClick(View view) {
-        View v = (View) view.getParent();
-        TextView taskTextView = (TextView) v.findViewById(R.id.taskTextView);
-        String task = taskTextView.getText().toString();
+                        commentNameList = new String[data.length()];
+                        userNameList = new String[data.length()];
 
-        String sql = String.format("DELETE FROM %s WHERE %s = '%s'",
-                CommentContract.TABLE,
-                CommentContract.Columns.TASK,
-                task);
+                        for(int i = 0; i<data.length(); i++)
+                        {
+
+                            JSONObject curQuestion = data.getJSONObject(i);
+                            idX = curQuestion.getInt("id");
+                            contentX = curQuestion.getString("content");
+                            likesX = curQuestion.getInt("likes");
+                            createdatX = curQuestion.getInt("created_at");
+                            userIDX = curQuestion.getInt("user_id");
+                            questionIDX = curQuestion.getInt("question_id");
+                            user_nameX = curQuestion.getString("user_name");
+
+                            Comment commentX = new Comment(contentX, idX, user_nameX, createdatX, userIDX, questionIDX, likesX);
+                            commentNameList[i]= user_nameX + ": " + contentX;
+//                            userNameList[i]= user_nameX;
+                            commentList.add(commentX);
+                        }
+                    }
+
+                    catch(Exception e){e.printStackTrace();}
 
 
-        helper = new CommentDBHelper(Comments.this);
-        SQLiteDatabase sqlDB = helper.getWritableDatabase();
-        sqlDB.execSQL(sql);
-        updateUI();
+                }
+                catch (MalformedURLException ex){
+                    Log.e(TAG, "Invalid URL Hommie", ex);
+                }
+                catch (IOException ex){
+                    Log.e(TAG, "IO/Connection Hommie", ex);
+                }
+                finally{
+                    connection.disconnect();
+                    if(connection != null){
+                        connection.disconnect();
+                    }
+                }
+            }
+        };//
+
+
+        x.start();
+        try{x.join();}
+        catch(InterruptedException e){Log.e(TAG, "Thread interupt Hommie", e);}
+
+        setListAdapter(new ArrayAdapter<String>(this, R.layout.activity_comments, R.id.taskTextView, commentNameList));
+        getListView().setTextFilterEnabled(true);
     }
 
 }

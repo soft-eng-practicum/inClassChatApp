@@ -8,12 +8,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.TodoList.R;
 
 import org.apache.commons.io.IOUtils;
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -25,17 +25,22 @@ import java.net.URL;
 public class Register extends Activity {
     private static final String TAG = Register.class.getSimpleName();
     private Button btnRegister;
-    private Button btnLinkToLogin;
     private EditText inputFirstname;
     private EditText inputLastname;
 
     private EditText inputEmail;
     private EditText inputPassword;
     private ProgressDialog pDialog;
+    public boolean isErrorX;
+    public String errorX;
+    private Error errors;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+        getActionBar().setDisplayHomeAsUpEnabled(false);
+
         setContentView(R.layout.activity_register);
 
 
@@ -44,7 +49,6 @@ public class Register extends Activity {
         inputEmail = (EditText) findViewById(R.id.email);
         inputPassword = (EditText) findViewById(R.id.password);
         btnRegister = (Button) findViewById(R.id.btnRegister);
-        btnLinkToLogin = (Button) findViewById(R.id.btnLinkToLoginScreen);
         final String fname = inputFirstname.getText().toString();
         final String lname = inputLastname.getText().toString();
         final String email = inputEmail.getText().toString();
@@ -72,90 +76,38 @@ public class Register extends Activity {
             }
         });
 
-//        new Thread()
-//        {
-//            public void run()
-//            {
-//
-//
-//                HttpURLConnection connection = null;
-//                try{
-//                    URL myUrl = new URL("http://jakemor.com/classchat_backend/createUser/email="+ email + "/first_name=" + fname + "/last_name="+ lname+ "/password=" + password);
-//                    connection = (HttpURLConnection)myUrl.openConnection();
-//                    InputStream iStream = connection.getInputStream();
-//                    final String response = IOUtils.toString(iStream);
-//                    final TextView fView = (TextView) findViewById(R.id.email);
-//                    fView.post( new Runnable() {
-//                        @Override
-//                        public void run() {
-//                            fView.setText("Respnse: " + response);
-//                        }
-//                    });
-//
-//                }
-//                catch (MalformedURLException ex){
-//                    Log.e(TAG, "Invalid URL Hommie", ex);
-//                }
-//                catch (IOException ex){
-//                    Log.e(TAG, "IO/Connection Hommie", ex);
-//                }
-//                finally{
-//                    connection.disconnect();
-//                    if(connection != null){
-//                        connection.disconnect();
-//                    }
-//                }
-//            }
-//
-//        }.start();
-
-
-        // Link to Login Screen
-        btnLinkToLogin.setOnClickListener(new View.OnClickListener() {
-
-            public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(),
-                        ClassChat.class);
-                startActivity(i);
-                finish();
-            }
-        });
-
     }//onCreate
+    public void backToLogin(View view){
+        Intent intent = new Intent(Register.this, Chalkboard.class);
+        startActivity(intent);
 
-    /**
-     * Function to store user in MySQL database will post params(tag, name,
-     * email, password) to register url
-     */
-    // public void registerUser(View view) {
+    }
+
     public void registerUser(final String fname, final String lname, final String email,
                               final String password) {
 
-        // Tag used to cancel the request
-        String tag_string_req = "req_register";
-
         pDialog.setMessage("Registering ...");
         showDialog();
-        new Thread()
+        Thread x =new Thread()
         {
             public void run()
             {
-
-
                 HttpURLConnection connection = null;
                 try{
                     URL myUrl = new URL("http://jakemor.com/classchat_backend/createUser/email="+ email + "/first_name=" + fname + "/last_name="+ lname+ "/password=" + password);
                     connection = (HttpURLConnection)myUrl.openConnection();
                     InputStream iStream = connection.getInputStream();
                     final String response = IOUtils.toString(iStream);
-                    final TextView fView = (TextView) findViewById(R.id.email);
-                    fView.post( new Runnable() {
-                        @Override
-                        public void run() {
-                            fView.setText("Respnse: " + response);
-                        }
-                    });
-
+                    Log.i("Response: ", response);
+                    try {
+                        JSONObject root = new JSONObject(response);
+                        isErrorX = root.getBoolean("error");
+                        errorX = root.getString("error_message");
+                        errors = new Error(isErrorX, errorX);
+                    }
+                    catch(Exception e){
+                        e.printStackTrace();
+                    }
                 }
                 catch (MalformedURLException ex){
                     Log.e(TAG, "Invalid URL Hommie", ex);
@@ -171,19 +123,31 @@ public class Register extends Activity {
                 }
             }
 
-        }.start();
-
-        Intent intent = new Intent(Register.this, ClassChat.class);
-        startActivity(intent);
-        finish();
+        };
+        x.start();
+        try{x.join();}
+        catch(InterruptedException e){Log.e(TAG, "Thread interupt Hommie", e);}
+        hideDialog();
+        if(isErrorX){
+            Toast.makeText(getApplicationContext(),
+                    errorX, Toast.LENGTH_LONG)
+                    .show();
+//            Log.i("error message: ", errorX);
+        }
+        else {
+           // Log.i("error message: ", errorX);
+            Intent intent = new Intent(this, Chalkboard.class);
+            startActivity(intent);
+            //finish();
+        }
     }
     private void showDialog() {
-//        if (!pDialog.isShowing())
-//            pDialog.show();
+        if (!pDialog.isShowing())
+            pDialog.show();
     }
 
     private void hideDialog() {
-//        if (pDialog.isShowing())
-//            pDialog.dismiss();
+        if (pDialog.isShowing())
+            pDialog.dismiss();
     }
 }

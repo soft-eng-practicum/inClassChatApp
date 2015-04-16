@@ -8,26 +8,18 @@
         android:minSdkVersion="11"
         android:targetSdkVersion="19" />
 
-    <!--<android:uses-permission-->
-        <!--android:name="android.permission.WRITE_EXTERNAL_STORAGE"-->
-        <!--android:maxSdkVersion="18" />-->
-    <!--<android:uses-permission android:name="android.permission.READ_PHONE_STATE" />-->
-    <!--<android:uses-permission-->
-        <!--android:name="android.permission.READ_EXTERNAL_STORAGE"-->
-        <!--android:maxSdkVersion="18" />-->
-
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:icon="@drawable/freeiconmaker_0"
-        android:label="ClassChat"
-        android:title="ClassChat" >
+        android:icon="@drawable/chalkboard"
+        android:label="Chalkboard"
+        android:title = "Chalkboard">
 
         <!-- android:debuggable="false" -->
         >
         <activity
-            android:name="com.example.CC.ClassChat"
-            android:label="ClassChat" >
+            android:name="com.example.CC.Chalkboard"
+            android:label="Chalkboard" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -37,31 +29,33 @@
         <activity
             android:name="com.example.CC.Classes"
             android:label="Classes"
-            android:parentActivityName="com.example.CC.ClassChat" >
+            android:parentActivityName="com.example.CC.Chalkboard" >
         </activity>
         <activity
             android:name="com.example.CC.Questions"
             android:label="@string/title_activity_questions"
-            android:parentActivityName="com.example.CC.Classes" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.CC.Classes" />
+            android:parentActivityName="com.example.CC.Classes">
+            <!--android:theme="@android:style/Theme.NoTitleBar">-->
+            <!--<meta-data-->
+
+                <!--android:name="android.support.PARENT_ACTIVITY"-->
+                <!--android:value="com.example.CC.Classes" />-->
         </activity>
         <activity
             android:name="com.example.CC.Comments"
             android:label="@string/title_activity_comments"
             android:parentActivityName="com.example.CC.Questions" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.CC.Questions" />
+            <!--<meta-data-->
+                <!--android:name="android.support.PARENT_ACTIVITY"-->
+                <!--android:value="com.example.CC.Questions" />-->
         </activity>
         <activity
             android:name="com.example.CC.Register"
             android:label="@string/title_activity_register"
-            android:parentActivityName="com.example.CC.ClassChat" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.CC.ClassChat" />
+            android:parentActivityName="com.example.CC.Chalkboard" >
+            <!--<meta-data-->
+                <!--android:name="android.support.PARENT_ACTIVITY"-->
+                <!--android:value="com.example.CC.ClassChat" />-->
         </activity>
     </application>
 

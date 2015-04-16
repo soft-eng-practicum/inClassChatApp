@@ -69,18 +69,7 @@
             android:singleLine="true"
             android:textColor="#000000"/>
         <!--/ android:textColorHint="@color/input_register_hint" />-->
-        <EditText
-            android:id="@+id/password1"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:background="#FFFFFF"
-            android:hint="Confirm Password"
-            android:textColorHint="#888888"
-            android:inputType="textPassword"
-            android:padding="10dp"
-            android:singleLine="true"
-            android:textColor="#000000"/>
+
         <!--/ android:textColorHint="@color/input_register_hint" />-->
         <!-- Login Button -->
 
