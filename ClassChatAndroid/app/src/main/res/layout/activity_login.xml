@@ -6,7 +6,17 @@
     android:background="#000000"
     android:gravity="center"
     android:orientation="vertical"
-    android:padding="10dp" >
+    android:padding="10dp"
+    android:weightSum="1">
+
+    <ImageView
+        android:layout_width="118dp"
+        android:layout_height="104dp"
+        android:id="@+id/imageView"
+        android:layout_gravity="center_horizontal"
+        android:adjustViewBounds="false"
+        android:src="@drawable/chalkboard"
+        android:layout_weight="0.58" />
 
     <LinearLayout
         android:layout_width="fill_parent"

@@ -13,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.CC.db.TaskDBHelper;
 import com.example.TodoList.R;
@@ -26,6 +27,7 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 
 public class Classes extends ListActivity {
@@ -69,7 +71,14 @@ public class Classes extends ListActivity {
 				builder.setPositiveButton("Add", new DialogInterface.OnClickListener() {
 					@Override
 					public void onClick(DialogInterface dialogInterface, int i) {
-						final String newClass = inputField.getText().toString();
+						String newClass =inputField.getText().toString();
+
+                        final String zz =newClass.replaceAll("[#]","%23");
+                        final String zzz =zz.replaceAll("[&]","%26");
+                        final String zzzz =zzz.replaceAll("[+]","%2B");
+                        final String z =zzzz.replaceAll("[?]","%3F");
+
+
 
                         Thread x =new Thread()
                         {
@@ -77,11 +86,14 @@ public class Classes extends ListActivity {
                             {
                                 HttpURLConnection connection = null;
                                 try{
-                                    URL myUrl = new URL("http://jakemor.com/classchat_backend/enrollUserInCourse/user_id=" + ClassID +"/course_name=" + newClass);
-                                    connection = (HttpURLConnection)myUrl.openConnection();
+
+                                    String urlNewClass = URLEncoder.encode(z, "UTF-8");
+
+                                    URL myUrl = new URL("http://jakemor.com/classchat_backend/enrollUserInCourse/user_id=" + ClassID +"/course_name=" + urlNewClass);
+                                 connection = (HttpURLConnection)myUrl.openConnection();
                                     InputStream iStream = connection.getInputStream();
                                     final String response = IOUtils.toString(iStream);
-//                                    Log.i("myTag", response);
+                                    Log.i("Enroll", response);
                                 }
                                 catch (MalformedURLException ex){
                                     Log.e(TAG, "Invalid URL Hommie", ex);
@@ -91,9 +103,6 @@ public class Classes extends ListActivity {
                                 }
                                 finally{
                                     connection.disconnect();
-                                    if(connection != null){
-                                        connection.disconnect();
-                                    }
                                 }
                             }
                         };//
@@ -101,17 +110,14 @@ public class Classes extends ListActivity {
                         x.start();
                         try{x.join();}
                         catch(InterruptedException e){Log.e(TAG, "Thread interupt Hommie", e);}
-
-
 						updateUI();
+                        Toast.makeText(getApplicationContext()," Enrolled in " +newClass, Toast.LENGTH_SHORT).show();
 					}
 				});
 
 				builder.setNegativeButton("Cancel",null);
-
 				builder.create().show();
 				return true;
-
 			default:
 				return false;
 		}
@@ -130,7 +136,9 @@ public class Classes extends ListActivity {
                     connection = (HttpURLConnection)myUrl.openConnection();
                     InputStream iStream = connection.getInputStream();
                     final String response = IOUtils.toString(iStream);
-//                    Log.i("myTag", response);
+//                    Log.i("Class Response:", response);
+//                    Toast.makeText(getApplicationContext(), response, Toast.LENGTH_SHORT).show();
+
                     try{
                         JSONObject root = new JSONObject(response);
                         JSONArray data = root.getJSONArray("data");
@@ -150,6 +158,7 @@ public class Classes extends ListActivity {
                             nameList[i]= nameX;
                             courseList.add(courseX);
                         }
+
                     }
 
                     catch(Exception e){e.printStackTrace();}
@@ -175,19 +184,25 @@ public class Classes extends ListActivity {
 
         setListAdapter(new ArrayAdapter<String>(this, R.layout.class_view, R.id.taskTextView, nameList));
         getListView().setTextFilterEnabled(true);
+//        Log.i("NameList: ", nameList.toString());
+//        Toast.makeText(getApplicationContext(), "NameList: " + nameList[0], Toast.LENGTH_SHORT).show();
+
 	}
 
 	public void onDoneButtonClick(View view) {
 		View v = (View) view.getParent();
 		TextView taskTextView = (TextView) v.findViewById(R.id.taskTextView);
 		final String deleteClass = taskTextView.getText().toString();
+
         Thread x =new Thread()
         {
             public void run()
             {
                 HttpURLConnection connection = null;
                 try{
-                    URL myUrl = new URL("http://jakemor.com/classchat_backend/dropUserFromCourse/user_id=" + ClassID +"/course_name=" + deleteClass);
+                    String test = deleteClass;
+                    String urlDeleteClass = URLEncoder.encode(test, "UTF-8");
+                    URL myUrl = new URL("http://jakemor.com/classchat_backend/dropUserFromCourse/user_id=" + ClassID +"/course_name=" + urlDeleteClass);
                     connection = (HttpURLConnection)myUrl.openConnection();
                     InputStream iStream = connection.getInputStream();
                     final String response = IOUtils.toString(iStream);
@@ -201,9 +216,6 @@ public class Classes extends ListActivity {
                 }
                 finally{
                     connection.disconnect();
-                    if(connection != null){
-                        connection.disconnect();
-                    }
                 }
             }
         };//

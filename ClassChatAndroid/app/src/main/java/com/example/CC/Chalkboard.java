@@ -20,6 +20,7 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLEncoder;
 
 public class Chalkboard extends Activity {
     // LogCat tag
@@ -79,8 +80,9 @@ public class Chalkboard extends Activity {
         startActivity(intent);
     }
 
-    public void checkLogin(final String email, final String password) {
-
+    public void checkLogin( String email,  String password) {
+        final String emailZ =email.replaceAll("[?]","%3F");
+        final String passwordZ =password.replaceAll("[?]","%3F");
         pDialog.setMessage("Logging in ...");
         showDialog();
         Thread x =new Thread()
@@ -89,7 +91,9 @@ public class Chalkboard extends Activity {
             {
                 HttpURLConnection connection = null;
                 try{
-                    URL myUrl = new URL("http://jakemor.com/classchat_backend/login/email=" + email + "/password=" + password);
+                    String emailZZ = URLEncoder.encode(emailZ, "UTF-8");
+                    String passwordZZ = URLEncoder.encode(passwordZ, "UTF-8");
+                    URL myUrl = new URL("http://jakemor.com/classchat_backend/login/email=" + emailZZ + "/password=" + passwordZZ);
                     connection = (HttpURLConnection) myUrl.openConnection();
                     InputStream iStream = connection.getInputStream();
                     final String response = IOUtils.toString(iStream);
@@ -97,10 +101,6 @@ public class Chalkboard extends Activity {
 
                         try {
                             JSONObject root = new JSONObject(response);
-
-//                            JSONObject errorMessage = root.getJSONObject("error_message");JSONObject errorResponse = root.getJSONObject("error");
-
-
                             isErrorX = root.getBoolean("error");
                             errorX = root.getString("error_message");
                             errors = new Error(isErrorX, errorX);
@@ -108,8 +108,6 @@ public class Chalkboard extends Activity {
                                 JSONObject data = root.getJSONObject("data");
                                 id = data.getInt("id");
                             }
-
-
                         }
 
                         catch(Exception e){e.printStackTrace();}
@@ -121,9 +119,7 @@ public class Chalkboard extends Activity {
                     Log.e(TAG, "IO/Connection Hommie", ex);
                 }
                 finally{
-
                         connection.disconnect();
-
                 }
             }
         };

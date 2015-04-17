@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.TodoList.R;
 
@@ -24,6 +25,7 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 
 
@@ -67,19 +69,25 @@ public class Questions extends ListActivity {
                 builder.setPositiveButton("Add", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        final String newQuestion = inputField.getText().toString();
+                        String newQuestion = inputField.getText().toString();
+                        final String zz =newQuestion.replaceAll("[#]","%23");
+                        final String zzz =zz.replaceAll("[&]","%26");
+                        final String zzzz =zzz.replaceAll("[+]","%2B");
+                        final String z =zzzz.replaceAll("[?]","%3F");
 
                         Thread x =new Thread()
                         {
                             public void run()
                             {
+
                                 HttpURLConnection connection = null;
                                 try{
-                                    URL myUrl = new URL("http://jakemor.com/classchat_backend/postQuestion/user_id="+ UserID + "/course_id=" + ClassID+ "/question=" +newQuestion );
+                                    String urlNewQuestion = URLEncoder.encode(z, "UTF-8");
+                                    URL myUrl = new URL("http://jakemor.com/classchat_backend/postQuestion/user_id="+ UserID + "/course_id=" + ClassID+ "/question=" +urlNewQuestion );
                                     connection = (HttpURLConnection)myUrl.openConnection();
                                     InputStream iStream = connection.getInputStream();
                                     final String response = IOUtils.toString(iStream);
-                                    Log.i("myTag", response);
+
                                 }
                                 catch (MalformedURLException ex){
                                     Log.e(TAG, "Invalid URL Hommie", ex);
@@ -101,6 +109,7 @@ public class Questions extends ListActivity {
                         catch(InterruptedException e){Log.e(TAG, "Thread interupt Hommie", e);}
 
                         updateUI();
+                        Toast.makeText(getApplicationContext(), newQuestion + " added", Toast.LENGTH_SHORT).show();
                     }
                 });
 
