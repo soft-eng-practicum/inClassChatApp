@@ -20,6 +20,7 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLEncoder;
 
 
 public class Register extends Activity {
@@ -83,8 +84,12 @@ public class Register extends Activity {
 
     }
 
-    public void registerUser(final String fname, final String lname, final String email,
-                              final String password) {
+    public void registerUser( String fname,  String lname,  String email, String password) {
+        final String fnameZ =fname.replaceAll("[?]","%3F");
+        final String lnameZ =lname.replaceAll("[?]","%3F");
+        final String emailZ =email.replaceAll("[?]","%3F");
+        final String passwordZ =password.replaceAll("[?]","%3F");
+
 
         pDialog.setMessage("Registering ...");
         showDialog();
@@ -94,7 +99,11 @@ public class Register extends Activity {
             {
                 HttpURLConnection connection = null;
                 try{
-                    URL myUrl = new URL("http://jakemor.com/classchat_backend/createUser/email="+ email + "/first_name=" + fname + "/last_name="+ lname+ "/password=" + password);
+                    String fnameZZ = URLEncoder.encode(fnameZ, "UTF-8");
+                    String lnameZZ = URLEncoder.encode(lnameZ, "UTF-8");
+                    String emailZZ = URLEncoder.encode(emailZ, "UTF-8");
+                    String passwordZZ = URLEncoder.encode(passwordZ, "UTF-8");
+                    URL myUrl = new URL("http://jakemor.com/classchat_backend/createUser/email="+ emailZZ + "/first_name=" + fnameZZ + "/last_name="+ lnameZZ+ "/password=" + passwordZZ);
                     connection = (HttpURLConnection)myUrl.openConnection();
                     InputStream iStream = connection.getInputStream();
                     final String response = IOUtils.toString(iStream);
